@@ -14,7 +14,8 @@
     <meta name="keywords" content=>
     <meta name="author" content="Colm O'Sullivan">
     <meta>
-    {% endblock %}
+    {% endblock %
+
     {% block extra_meta %}
     {% endblock %}
 
@@ -43,7 +44,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Dawg House</title>
+    <title>Dawg House {% block extra_title %} {% enblock %}</title>
 </head>
 
 <body>
