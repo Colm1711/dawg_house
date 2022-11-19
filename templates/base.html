@@ -48,7 +48,25 @@
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+    <header class="container-fluid fixed-top"></header>
+
+    <!--Block to handle messages-->
+    {% if messages %}
+        <div class="message-container"></div>
+    {% endif %}
+
+    <!--Add additional header on pages-->
+    {% block page_header %}
+    {% endblock %}
+
+    <!--Main page content-->
+    {% block content %}
+    {% endblock %}
+
+    <!--Javascript for post page load-->
+    {% block postloadjs %}
+    {% endblock %}
+
 </body>
 
 </html>
