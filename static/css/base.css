@@ -2,7 +2,59 @@ html {
     height: 100%;
 }
 
+/* Hero Section */
 #hero{
-    background: url('/media/dog-hero.avif') no-repeat center center fixed;
+    background: url('/media/dog-hero-sm.avif') no-repeat center;
     background-size: cover;
 }
+
+.card{
+    display: none;
+}
+
+.sm-btn{
+    width: 85vw;
+}
+
+/* Services Section */
+
+
+/* Reviews Section */
+
+
+/* How It Works Section */
+
+
+/* -------------------------------- Media Queries */
+
+/* For tablets */
+@media (min-width: 768px) {
+    /* Hero Section */
+    #hero{
+        background: url('/media/dog-hero.avif') no-repeat;
+        background-size: cover;
+        background-position-x: 65%;
+    }
+    .card{
+        display: block;
+    }
+    .booking-card {
+        top: 125px;
+    }
+    .search-btn{
+        display: none;
+    }
+  }
+  
+/* For desktop: */
+@media (min-width: 1024px) {
+    /* Hero Section */
+    #hero{
+        background: url('/media/dog-hero.avif') no-repeat center;
+        background-size: cover;
+    }
+
+    .booking-card {
+        top: 110px;
+    }
+  }
