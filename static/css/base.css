@@ -8,7 +8,7 @@ html {
     background-size: cover;
 }
 
-.card{
+.booking-card{
     display: none;
 }
 
@@ -35,10 +35,9 @@ html {
         background-size: cover;
         background-position-x: 65%;
     }
-    .card{
-        display: block;
-    }
+    
     .booking-card {
+        display: block;
         top: 125px;
     }
     .search-btn{
