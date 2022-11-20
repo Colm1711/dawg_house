@@ -2,28 +2,83 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <!--Hero-->
 <section id="hero" class="vh-100">
-<div class="container pt-5">
-    <div class="row">
-        <div class="col-lg-8">
-           <div class="card">
-            <div class="card-body">
-                <h1 class="display-4">Book</h1>
-                This is some text
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-lg-7 col-md-9">
+                <div class="card booking-card">
+                        <h3 class="card-header text-lead">Service I am looking for</h3>
+                        <div class="card-body">
+                            <div class="row pb-4 ms-3">
+                                <div class="form-check form-check-inline  col-md-3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                        value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Kennel Boarding</label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                        value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Pet Sitting</label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                        value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Dog walking</label>
+                                </div>
+                            </div>
+                            <div class="row pb-4 ms-2">
+                                <div class="col-md-4">
+                                    <label for="exampleFormControlInput1" class="form-label">Near</label>
+                                    <input type="eir_code" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="Your Eircode">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="from_date" class="form-label">From:</label>
+                                    <input type="date" class="form-control" id="from_date" name="from_date">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="to_date" class="form-label">Until:</label>
+                                    <input type="date" class="form-control" id="to_date" name="to_date">
+                                </div>
+                            </div>
+                            <div class="row pt-3 ms-3">
+                                <div class="form-check form-check-inline col-md-2">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                                        value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Small 0-10kg</label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-2">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5"
+                                        value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Medium 10kg to 25kg</label>
+                                </div>
+                                <div class="form-check form-check-inline col-md-2">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6"
+                                        value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Large 25-55kg+</label>
+                                </div>
+                                <h4 class="pt-2 col-md-5">
+                                    <a href="#" class="btn btn-primary">Search</a>
+                                </h4>
+                            </div>
+                        </div>
+                </div>
             </div>
-           </div>
+            <h4 class="pt-5 col-12 search-btn text-center">
+                <p>Book vetted, local dog kennels, sitters & walkers who will care for and love your dog like you would</p>
+                <a href="#" class="btn btn-primary sm-btn">Search sm</a>
+            </h4>
         </div>
     </div>
-</div>
 </section>
 
 <!--Services-->
@@ -43,6 +98,17 @@
         <div class="row">
             <div class="col-lg-7">
                 <h1 class="display-4">Reviews</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--How It Works-->
+<section id="howitworks" class="vh-100 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h1 class="display-4">How it Works</h1>
             </div>
         </div>
     </div>
