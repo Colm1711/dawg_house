@@ -1,6 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works</h1>
+<!--Hero-->
+<section id="hero" class="vh-100">
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-lg-8">
+           <div class="card">
+            <div class="card-body">
+                <h1 class="display-4">Book</h1>
+                This is some text
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!--Services-->
+<section id="services" class="vh-100 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h1 class="display-4">Services</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Reviews-->
+<section id="reviews" class="vh-100 bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h1 class="display-4">Reviews</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
