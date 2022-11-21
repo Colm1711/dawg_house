@@ -83,59 +83,84 @@
 </section>
 
 <!--Services-->
-<section id="services" class="bg-light pb-5">
+<section id="services" class="bg-light pt-5 vh-100">
+    <h4 class="py-5 text-center">Services that our members provide</h4>
     <div class="container">
         <div class="row">
-            <div class="col-lg-7">
-                <h1 class="display-4">Services</h1>
+            <div class="col-lg-6 col-sm-6">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Kennel Boarding
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Overnight long term boarding while you and your family look to go on vacation. They
+                                    will
+                                    be feed, walked and given a warm bed. Travel in peace of mind that your furry loved
+                                    one
+                                    will be looked after!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Pet Sitting
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Your pets can enjoy their stay during the working hours in the sitter’s home. They’ll
+                                    be
+                                    looked after and loved as you would yourself until you are ready to collect them
+                                    again.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Dog walking
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Have an energetic furry friend that you can't keep up with? Never fear with this
+                                    service
+                                    your doggo will be taken for long walk in your local area to burn off that extra
+                                    energy!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Kennel Boarding
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Overnight long term boarding while you and your family look to go on vacation. They will
-                                be feed, walked and given a warm bed. Travel in peace of mind that your furry loved one
-                                will be looked after!</p>
-                        </div>
+        
+            <div class="col servicecard">
+                <div class="card">
+                    <div class="card-header">
+                        Book with for these services with peace of mind
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Pet Sitting
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Your pets can enjoy their stay during the working hours in the sitter’s home. They’ll be
-                                looked after and loved as you would yourself until you are ready to collect them again.
-                            </p>
-                        </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>All of our service providers are Garda Vetted</li>
+                            <li>All of our service providers provide detailed profile and personal information</li>
+                            <li>All of our service providers are interviewd by our team</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary col-12">Book with us today</a>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Dog walking
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p>Have an energetic furry friend that you can't keep up with? Never fear with this service
-                                your doggo will be taken for long walk in your local area to burn off that extra energy!
-                            </p>
-                        </div>
+                    <div class="card-footer text-muted">
+                        TC & C's - link
                     </div>
                 </div>
             </div>
@@ -155,7 +180,9 @@
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Mike</h5>
-                        <p class="card-text">I was concerned about leaving Milo with a stranger, but after coming back and seeing he nearly didn't want to leave the kennel that all disappeared. Going forward Dawg House will be my go to for pet kennel care!</p>
+                        <p class="card-text">I was concerned about leaving Milo with a stranger, but after coming back
+                            and seeing he nearly didn't want to leave the kennel that all disappeared. Going forward
+                            Dawg House will be my go to for pet kennel care!</p>
                     </div>
                 </div>
             </div>
@@ -164,7 +191,9 @@
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Jane</h5>
-                        <p class="card-text">The sitter we found on Dawg House took on my dog at short notice and met expectations and beyond! I wouldn't hesitate in using Dawg House going forward in the future.</p>
+                        <p class="card-text">The sitter we found on Dawg House took on my dog at short notice and met
+                            expectations and beyond! I wouldn't hesitate in using Dawg House going forward in the
+                            future.</p>
                     </div>
                 </div>
             </div>
