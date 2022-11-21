@@ -22,6 +22,11 @@ html {
 }
 
 /* Reviews Section */
+.card-img-top {
+    max-height: 200px;
+    min-height: 150px;
+    object-fit: cover;
+}
 
 
 /* How It Works Section */
@@ -45,10 +50,16 @@ html {
     .search-btn{
         display: none;
     }
-
+    /* Services Section */
     .servicecard{
         padding-top: 0;
     }
+    /* Reviews Section */
+    .card-text {
+        max-height: 200px;
+        min-height: 150px;
+    }
+    
   }
   
 /* For desktop: */
@@ -62,4 +73,9 @@ html {
     .booking-card {
         top: 110px;
     }
+    /* Reviews Section */
+    .card-img-top {
+    max-height: 100%;
+    min-height: 100%;
+}
   }
