@@ -17,7 +17,9 @@ html {
 }
 
 /* Services Section */
-
+.servicecard{
+    padding-top: 30px;
+}
 
 /* Reviews Section */
 
@@ -42,6 +44,10 @@ html {
     }
     .search-btn{
         display: none;
+    }
+
+    .servicecard{
+        padding-top: 0;
     }
   }
   
