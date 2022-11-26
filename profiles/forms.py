@@ -42,3 +42,27 @@ class RegisterForm(SignupForm):
         # .save() returns a User object.
         user = super(RegisterForm, self).save(request)
         return user
+
+
+class UpdateUserForm(forms.ModelForm):
+    """
+    Class controls form for updating User details to User Model
+    """
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ['email']
+
+
+class UpdateUserProfileForm(forms.ModelForm):
+    """
+    Class controls form for updating User details to User Profile Model
+    """
+    first_name = forms.CharField(max_length=50)
+    last_name = forms.CharField(max_length=50)
+    phone_number = forms.CharField(max_length=20)
+
+    class Meta:
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'phone_number']
