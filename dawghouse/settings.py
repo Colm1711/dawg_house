@@ -116,6 +116,8 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 # setting login redirect
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+# custom signupform
+ACCOUNT_FORMS = {'signup': 'profiles.forms.RegisterForm'}
 
 WSGI_APPLICATION = 'dawghouse.wsgi.application'
 
