@@ -11,7 +11,7 @@
     <div class="text-center">
       <p class="text-lead">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
     </div>
-    <div class="container col-md-3">
+    <div class="container col-md-6 col-lg-3">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form|crispy }}
