@@ -10,8 +10,25 @@
 {% endblock %}
 
 {% block content %}
-{% load crispy_forms_tags %}
-<!-- Profile-->
-<h1>It works</h1>
 
+<!-- Profile-->
+    <div class="border border-2">
+        <h1 class="display-4 text-center py-3">Update Your Account Details</h1>
+        <div class="pb-5">
+          <div class="container col-md-3">
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {% load crispy_forms_tags %}
+              {{ user_update_form | crispy }}
+              {{ profile_update_form | crispy }}
+              <div class="container pt-4">
+                <div class="row-flex d-flex justify-content-around text-center">
+                  <button class="btn btn-primary col-4" type="submit">Update</button>
+                  <button class="btn btn-danger col-4" type="">Delete</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 {% endblock %}
