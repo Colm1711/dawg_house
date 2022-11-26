@@ -16,10 +16,12 @@ class UserProfileAdmin(admin.ModelAdmin):
     'Phone Number'
     'Email'
     'Is Service Provider'
+    'Account Created On'
+    'Account Updated On'
     """
     list_display = ('first_name', 'last_name', 'phone_number',
-                    'is_service_provider')
+                    'is_service_provider', 'acc_created_on', 'acc_updated_on')
     search_fields = ['first_name', 'last_name', 'phone_number',
-                     'is_service_provider']
+                     'is_service_provider', 'acc_created_on', 'acc_updated_on']
     list_filter = ('first_name', 'last_name', 'phone_number',
-                   'is_service_provider')
+                   'is_service_provider', 'acc_created_on', 'acc_updated_on')
