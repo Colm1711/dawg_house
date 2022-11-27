@@ -40,3 +40,41 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.userprofile.save()
+
+
+class ServiceProvider(models.Model):
+    """"
+    This model holds the information if user
+    is a kennel owner, dog sitter or dog walker.
+
+    """
+    # defining service type choices
+    SERVICE_TYPE_CHOICES = (
+      (1, 'Kennel Boarding'),
+      (2, 'Pet Setting'),
+      (3, 'Dog walking'),
+    )
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                primary_key=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    service_type = models.PositiveSmallIntegerField(
+                                                choices=SERVICE_TYPE_CHOICES,
+                                                blank=False, null=False)
+    total_occupancy = models.IntegerField()
+    price_per_service = models.DecimalField(max_digits=6, decimal_places=2)
+    description = models.TextField()
+    address = models.CharField(max_length=256, blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    longitude = models.DecimalField(max_digits=22, decimal_places=16,
+                                    blank=True, null=True)
+    latitude = models.DecimalField(max_digits=22, decimal_places=16,
+                                   blank=True, null=True)
+    pet_allwd_in_house = models.BooleanField(default=False)
+    has_fenced_garden = models.BooleanField(default=False)
+    non_smoking = models.BooleanField(default=False)
+    pet_allowed_in_house = models.BooleanField(default=False)
+    owner_has_dog = models.BooleanField(default=False)
+    owner_has_cat = models.BooleanField(default=False)
+    owner_has_children = models.BooleanField(default=False)
