@@ -1,6 +1,12 @@
-from django.shortcuts import render, redirect
+# Imports
+
+# Django imports
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
+# Internal imports
 from .forms import UpdateUserForm, UpdateUserProfileForm
 
 
@@ -43,3 +49,14 @@ def update_profile(request):
                     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_profile(request):
+    """
+    Function to handle user account deletion on my account page.
+    Redirects user back to the home screen post deletion.
+    """
+    user = User.objects.filter(id=request.user.id)
+    user.delete()
+    return HttpResponseRedirect('/')
