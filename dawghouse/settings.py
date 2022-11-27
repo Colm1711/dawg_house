@@ -105,8 +105,8 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# setting account login to user either username or emails
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# setting account login to user emails
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # setting that email is required during sign up
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
