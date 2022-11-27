@@ -115,6 +115,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 # setting login redirect
 LOGIN_URL = '/accounts/login/'
+ACCOUNT_ADAPTER = 'profiles.adaptor.AccountAdapter'
 LOGIN_REDIRECT_URL = '/'
 # custom signupform
 ACCOUNT_FORMS = {'signup': 'profiles.forms.RegisterForm'}
