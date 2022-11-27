@@ -41,6 +41,11 @@ class RegisterForm(SignupForm):
     def save(self, request):
         # .save() returns a User object.
         user = super(RegisterForm, self).save(request)
+        user.userprofile.first_name = self.cleaned_data['first_name']
+        user.userprofile.last_name = self.cleaned_data['last_name']
+        user.userprofile.phone_number = self.cleaned_data['phone_number']
+        user.userprofile.is_service_provider = self.cleaned_data['is_service_provider']
+        user.save()
         return user
 
 
