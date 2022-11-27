@@ -1,6 +1,7 @@
-from django.shortcuts import render
+# Imports
 
-# Create your views here.
+# Django imports
+from django.shortcuts import render
 
 
 def index(request):
