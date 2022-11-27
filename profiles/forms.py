@@ -1,6 +1,14 @@
+# Imports
+
+# All auth imports
 from allauth.account.forms import SignupForm
+from allauth.account.forms import LoginForm
+
+# Django imports
 from django import forms
 from django.contrib.auth.models import User
+
+# Internal imports
 from .models import UserProfile
 
 
@@ -8,6 +16,8 @@ class RegisterForm(SignupForm):
     """
     Form to Customize Registration to include additonal
     User fields.
+
+    This form overrides the django-allauth registration form.
     """
 
     # Setting the custom profile fields to add to form
