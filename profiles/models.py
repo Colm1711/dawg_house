@@ -71,7 +71,6 @@ class ServiceProvider(models.Model):
                                     blank=True, null=True)
     latitude = models.DecimalField(max_digits=22, decimal_places=16,
                                    blank=True, null=True)
-    pet_allwd_in_house = models.BooleanField(default=False)
     has_fenced_garden = models.BooleanField(default=False)
     non_smoking = models.BooleanField(default=False)
     pet_allowed_in_house = models.BooleanField(default=False)
