@@ -85,6 +85,10 @@ class UpdateUserProfileForm(forms.ModelForm):
 
 
 class ServiceProviderForm(forms.ModelForm):
+    """
+    Class controls form for Service provider details to 
+    Service Provider Model
+    """
     class Meta:
         model = ServiceProvider
         exclude = ("user", "slug", "created_on", "updated_on", "longitude",
