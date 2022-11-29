@@ -10,12 +10,13 @@ class AccountAdapter(DefaultAccountAdapter):
 
     User redirected to settings.LOGIN_REDIRECT_URL = Home
 
-    Sends service provider to profile for DEVELOPMENT will update this.
+    Sends service provider to 'serviceprovider' for DEVELOPMENT will update
+    this.
     """
     def get_login_redirect_url(self, request):
 
         if request.user.userprofile.is_service_provider is True:
-            url = '/profile'
+            url = 'serviceprovider'
         else:
             url = settings.LOGIN_REDIRECT_URL
         return resolve_url(url)
