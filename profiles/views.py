@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 # Internal imports
-from .forms import UpdateUserForm, UpdateUserProfileForm
+from .forms import UpdateUserForm, UpdateUserProfileForm, ServiceProviderForm
 
 
 @login_required
@@ -60,3 +60,19 @@ def delete_profile(request):
     user = User.objects.filter(id=request.user.id)
     user.delete()
     return HttpResponseRedirect('/')
+
+
+@login_required
+def serviceprovider(request, id=id):
+    """
+    This form is for Service Provider to fill out their details.
+    """
+    form = ServiceProviderForm(request.POST)
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.user = request.user
+        form.save()
+        return redirect('/')
+    else:
+        form = ServiceProviderForm()
+    return render(request, "profiles/serviceprovider.html", {"form": form})
