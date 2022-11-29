@@ -54,8 +54,8 @@ class ServiceProvider(models.Model):
       (2, 'Pet Setting'),
       (3, 'Dog walking'),
     )
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                related_name='serviceprovider')
     slug = models.SlugField(max_length=200, unique=True)
     service_type = models.PositiveSmallIntegerField(
                                                 choices=SERVICE_TYPE_CHOICES,
