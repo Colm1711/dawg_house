@@ -87,4 +87,5 @@ class UpdateUserProfileForm(forms.ModelForm):
 class ServiceProviderForm(forms.ModelForm):
     class Meta:
         model = ServiceProvider
-        exclude = ("user", "slug", "created_on", "updated_on", "longitude", "latitude",)
+        exclude = ("user", "slug", "created_on", "updated_on", "longitude",
+                   "latitude",)
