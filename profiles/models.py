@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
 
 # Cloudinary import
 from cloudinary.models import CloudinaryField
@@ -76,3 +77,22 @@ class ServiceProvider(models.Model):
     owner_has_dog = models.BooleanField(default=False)
     owner_has_cat = models.BooleanField(default=False)
     owner_has_children = models.BooleanField(default=False)
+
+    # will check if a service provider exists in model DB and if it does
+    # will increment add underscore and increment the slug number counter by 1
+    def save(self, *args, **kwargs):
+        if not self.id and not self.slug:
+            slug = slugify(self.service_type)
+            slug_exists = True
+            counter = 1
+            self.slug = slug
+            while slug_exists:
+                try:
+                    slug_exits = ServiceProvider.objects.get(slug=slug)
+                    if slug_exits:
+                        slug = self.slug + '_' + str(counter)
+                        counter += 1
+                except ServiceProvider.DoesNotExist:
+                    self.slug = slug
+                    break
+        super(ServiceProvider, self).save(*args, **kwargs)
