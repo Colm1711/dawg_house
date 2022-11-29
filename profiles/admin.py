@@ -56,4 +56,3 @@ class ServiceProviderAdmin(admin.ModelAdmin):
     list_filter = ('service_type', 'total_occupancy', 'description',
                    'address', 'has_fenced_garden', 'pet_allowed_in_house',
                    'owner_has_dog', 'owner_has_cat', 'owner_has_children')
-    prepopulated_fields = {'slug': ('user',)}
