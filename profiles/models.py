@@ -19,9 +19,13 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE,
                                 related_name='userprofile')
-    first_name = models.CharField(max_length=50, null=True, blank=True)
-    last_name = models.CharField(max_length=50, null=True, blank=True)
-    phone_number = models.CharField(max_length=20, null=True, blank=True)
+    first_name = models.CharField(max_length=50, blank=False)
+    last_name = models.CharField(max_length=50, blank=False)
+    address_1 = models.CharField(max_length=255, blank=False)
+    address_2 = models.CharField(max_length=255, blank=True)
+    county = models.CharField(max_length=255, blank=False)
+    eircode = models.CharField(max_length=7, blank=False)
+    phone_number = models.CharField(max_length=20, blank=False)
     acc_created_on = models.DateTimeField(auto_now_add=True)
     acc_updated_on = models.DateTimeField(auto_now=True)
     is_service_provider = models.BooleanField(default=False)
@@ -64,7 +68,6 @@ class ServiceProvider(models.Model):
     total_occupancy = models.IntegerField()
     price_per_service = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
-    address = models.CharField(max_length=256, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     longitude = models.DecimalField(max_digits=22, decimal_places=16,
