@@ -94,11 +94,17 @@ class UpdateUserProfileForm(forms.ModelForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
     phone_number = forms.CharField(max_length=20)
+    is_service_provider = forms.BooleanField(required=False)
 
     class Meta:
         model = UserProfile
         fields = ['first_name', 'last_name', 'phone_number', 'address_1',
-                  'address_2', 'county', 'eircode']
+                  'address_2', 'county', 'eircode', 'is_service_provider']
+
+    # get previous selected boolean for service provider for profile
+    def clean(self):
+        cleaned_data = super().clean()
+        is_service_provider = cleaned_data.get('is_service_provider')
 
 
 class ServiceProviderForm(forms.ModelForm):
