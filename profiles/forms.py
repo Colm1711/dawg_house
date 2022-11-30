@@ -33,19 +33,31 @@ class RegisterForm(SignupForm):
                                    widget=forms.TextInput
                                    (
                                     attrs={'placeholder': 'Phone Number'}))
+    address_1 = forms.CharField(max_length=20,
+                                widget=forms.TextInput
+                                (
+                                 attrs={'placeholder': 'Address 1'}))
+    address_2 = forms.CharField(max_length=20, required=False,
+                                widget=forms.TextInput
+                                (
+                                 attrs={'placeholder': 'Address 2'}))
+    county = forms.CharField(max_length=20,
+                             widget=forms.TextInput
+                             (
+                              attrs={'placeholder': 'County'}))
+    eircode = forms.CharField(max_length=7,
+                              widget=forms.TextInput
+                              (
+                                attrs={'placeholder': 'Eir Code'}))
     is_service_provider = forms.BooleanField(required=False)
 
     # Overriding the init method
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        placeholders = {
-            'first_name': 'First Name',
-        }
         # Remove username as will not be used
         del self.fields["username"]
         # Set email as the autofocus
         self.fields["email"].widget.attrs["autofocus"] = True
-        self.fields['phone_number'].widget.attrs['type'] = "number"
 
     # saving the user data from form to User and UserProfile
     def save(self, request):
@@ -54,6 +66,10 @@ class RegisterForm(SignupForm):
         user.userprofile.first_name = self.cleaned_data['first_name']
         user.userprofile.last_name = self.cleaned_data['last_name']
         user.userprofile.phone_number = self.cleaned_data['phone_number']
+        user.userprofile.address_1 = self.cleaned_data['address_1']
+        user.userprofile.address_2 = self.cleaned_data['address_2']
+        user.userprofile.county = self.cleaned_data['county']
+        user.userprofile.eircode = self.cleaned_data['eircode']
         user.userprofile.is_service_provider = self.cleaned_data[
                                                     'is_service_provider']
         user.save()
