@@ -18,8 +18,8 @@ def update_profile(request):
     User must be signed in to do this.
     """
     template = 'profiles/profile.html'
-    success_message = "Success"
-    error_message = "Fail"
+    success_message = 'Profile updated successfully'
+    error_message = 'Update failed. Please ensure the form is valid.'
     userprofile = request.user.userprofile
 
     if request.method == 'POST':
@@ -32,10 +32,11 @@ def update_profile(request):
         if user_update_form.is_valid() and profile_update_form.is_valid():
             user_update_form.save()
             profile_update_form.save()
+            messages.success(request, success_message)
             return redirect('profile')
         else:
-            # send message to user if something goes wrong and redirect
-            print(error_message)
+            # send message to user if something goes wrong
+            messages.error(request, error_message)
     else:
         # get forms to show current data to user
         user_update_form = UpdateUserForm(instance=request.user)
@@ -57,7 +58,10 @@ def delete_profile(request):
     Function to handle user account deletion on my account page.
     Redirects user back to the home screen post deletion.
     """
+    success_message_del = ("Successfully Deleted profile. We are sad to see"
+                           " you go!")
     user = User.objects.filter(id=request.user.id)
+    messages.success(request, success_message)
     user.delete()
     return HttpResponseRedirect('/')
 
