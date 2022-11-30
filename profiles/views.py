@@ -71,12 +71,13 @@ def serviceprovider(request, id=id):
     """
     This form is for Service Provider to fill out their details.
     """
+    success_message = 'Your Services Profile updated successfully'
+
     form = ServiceProviderForm(request.POST)
     if form.is_valid():
         form = form.save(commit=False)
         form.user = request.user
         form.save()
+        messages.success(request, success_message)
         return redirect('/')
-    else:
-        form = ServiceProviderForm()
     return render(request, "profiles/serviceprovider.html", {"form": form})
