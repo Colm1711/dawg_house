@@ -97,7 +97,8 @@ class UpdateUserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ['first_name', 'last_name', 'phone_number']
+        fields = ['first_name', 'last_name', 'phone_number', 'address_1',
+                  'address_2', 'county', 'eircode']
 
 
 class ServiceProviderForm(forms.ModelForm):
