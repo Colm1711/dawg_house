@@ -19,12 +19,15 @@ class UserProfileAdmin(admin.ModelAdmin):
     'Account Created On'
     'Account Updated On'
     """
-    list_display = ('first_name', 'last_name', 'phone_number',
-                    'is_service_provider', 'acc_created_on', 'acc_updated_on')
-    search_fields = ['first_name', 'last_name', 'phone_number',
-                     'is_service_provider', 'acc_created_on', 'acc_updated_on']
-    list_filter = ('first_name', 'last_name', 'phone_number',
-                   'is_service_provider', 'acc_created_on', 'acc_updated_on')
+    list_display = ('first_name', 'last_name', 'phone_number', 'address_1',
+                    'address_2', 'county', 'eircode', 'is_service_provider',
+                    'acc_created_on', 'acc_updated_on')
+    search_fields = ['first_name', 'last_name', 'phone_number', 'address_1',
+                     'address_2', 'county', 'eircode', 'is_service_provider',
+                     'acc_created_on', 'acc_updated_on']
+    list_filter = ('first_name', 'last_name', 'phone_number', 'address_1',
+                   'address_2', 'county', 'eircode', 'is_service_provider',
+                   'acc_created_on', 'acc_updated_on')
 
 
 @admin.register(ServiceProvider)
@@ -39,7 +42,6 @@ class ServiceProviderAdmin(admin.ModelAdmin):
     'Service Type'
     'Total Occupancy'
     'Description'
-    'Address'
     'Has fence'
     'Pets allowed in House'
     'Owner has dog'
@@ -48,11 +50,11 @@ class ServiceProviderAdmin(admin.ModelAdmin):
 
     """
     list_display = ('service_type', 'total_occupancy', 'description',
-                    'address', 'has_fenced_garden', 'pet_allowed_in_house',
+                    'has_fenced_garden', 'pet_allowed_in_house',
                     'owner_has_dog', 'owner_has_cat', 'owner_has_children')
     search_fields = ['service_type', 'total_occupancy', 'description',
-                     'address', 'has_fenced_garden', 'pet_allowed_in_house',
+                     'has_fenced_garden', 'pet_allowed_in_house',
                      'owner_has_dog', 'owner_has_cat', 'owner_has_children']
     list_filter = ('service_type', 'total_occupancy', 'description',
-                   'address', 'has_fenced_garden', 'pet_allowed_in_house',
+                   'has_fenced_garden', 'pet_allowed_in_house',
                    'owner_has_dog', 'owner_has_cat', 'owner_has_children')
