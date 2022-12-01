@@ -60,10 +60,10 @@ def delete_profile(request):
     Function to handle user account deletion on my account page.
     Redirects user back to the home screen post deletion.
     """
-    success_message_del = ("Successfully Deleted profile. We are sad to see"
-                           " you go!")
+    error_message = ("Successfully Deleted profile. We are sad to see"
+                     " you go!")
     user = User.objects.filter(id=request.user.id)
-    messages.success(request, success_message)
+    messages.error(request, error_message)
     user.delete()
     return HttpResponseRedirect('/')
 
@@ -91,9 +91,10 @@ def update_serviceprovider(request, *args, **kwargs):
     This form is for Service Provider to update their services details.
     """
     success_message = 'Your Services Profile updated successfully'
-    
+
     if request.method == 'POST':
-        form = ServiceProviderForm(request.POST, instance=request.user.serviceprovider)
+        form = ServiceProviderForm(request.POST,
+                                   instance=request.user.serviceprovider)
         if form.is_valid():
             form = form.save(commit=False)
             form.save()
