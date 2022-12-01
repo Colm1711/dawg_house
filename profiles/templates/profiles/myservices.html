@@ -22,7 +22,8 @@
               {{ form | crispy }}
               <div class="container pt-4">
                 <div class="row-flex d-flex justify-content-around text-center">
-                  <button class="btn btn-primary col-8" type="submit">Update</button>
+                  <button class="btn btn-primary col-4" type="submit">Update</button>
+                  <a class="btn btn-danger col-4" href="{% url 'delete_profile'%}">Delete Account</a>
                 </div>
               </div>
             </form>
