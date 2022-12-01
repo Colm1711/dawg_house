@@ -4,10 +4,12 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 
 # Internal imports
 from .forms import UpdateUserForm, UpdateUserProfileForm, ServiceProviderForm
+from .models import ServiceProvider
 
 
 @login_required
@@ -67,11 +69,11 @@ def delete_profile(request):
 
 
 @login_required
-def serviceprovider(request, id=id):
+def serviceprovider(request):
     """
     This form is for Service Provider to fill out their details.
     """
-    success_message = 'Your Services Profile updated successfully'
+    success_message = 'Your Services Profile added successfully'
 
     form = ServiceProviderForm(request.POST)
     if form.is_valid():
@@ -81,3 +83,28 @@ def serviceprovider(request, id=id):
         messages.success(request, success_message)
         return redirect('/')
     return render(request, "profiles/serviceprovider.html", {"form": form})
+
+
+@login_required
+def update_serviceprovider(request, *args, **kwargs):
+    """
+    This form is for Service Provider to update their services details.
+    """
+    success_message = 'Your Services Profile updated successfully'
+    
+    if request.method == 'POST':
+        form = ServiceProviderForm(request.POST, instance=request.user.serviceprovider)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.save()
+            messages.success(request, success_message)
+            return redirect('/')
+
+    else:
+        form = ServiceProviderForm(instance=request.user.serviceprovider)
+
+    context = {
+                'form': form
+                }
+
+    return render(request, "profiles/myservices.html", context)
