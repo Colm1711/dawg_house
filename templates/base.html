@@ -84,10 +84,13 @@
                             <ul class="dropdown-menu">
                             {% if request.user.is_authenticated %}
                                 <li><a href="{% url 'profile' %}" class="dropdown-item">My Profile</a></li>
+                                {% if request.user.userprofile.is_service_provider %}
+                                <li><a href="{% url 'myservices' %}" class="dropdown-item">My Service Profile</a></li>
+                                {% endif %}
                                 <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
                             {% else %}
-                                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
                                 <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
+                                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
                             {% endif %}
                             </ul>
                         </li>
