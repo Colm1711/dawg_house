@@ -59,7 +59,7 @@ class ServiceProvider(models.Model):
       (2, 'Pet Setting'),
       (3, 'Dog walking'),
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE,
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE,
                                 related_name='serviceprovider')
     service_type = models.PositiveSmallIntegerField(
                                                 choices=SERVICE_TYPE_CHOICES,
@@ -79,3 +79,18 @@ class ServiceProvider(models.Model):
     owner_has_dog = models.BooleanField(default=False)
     owner_has_cat = models.BooleanField(default=False)
     owner_has_children = models.BooleanField(default=False)
+    slug = models.SlugField(blank=True, null=True)
+
+    # function to auto generate the slug field for service provider
+    # https://www.youtube.com/watch?v=fHImRsDaP0M
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.user.first_name + "-"
+                                + self.user.last_name + "-" +
+                                self.user.address_1)
+        super().save(*args, **kwargs)
+        if self.slug is None:
+            self.slug = slugify(self.user.first_name + "-"
+                                + self.user.last_name + "-" +
+                                self.user.address_1)
+            self.save()
