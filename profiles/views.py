@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 # Internal imports
 from .forms import UpdateUserForm, UpdateUserProfileForm, ServiceProviderForm
 from .models import ServiceProvider
+from .decorators import service_provider_required
 
 
 @login_required
@@ -68,6 +69,7 @@ def delete_profile(request):
     return HttpResponseRedirect('/')
 
 
+@service_provider_required
 @login_required
 def serviceprovider(request):
     """
@@ -99,6 +101,7 @@ def serviceprovider(request):
         return render(request, "profiles/serviceprovider.html", {"form": form})
 
 
+@service_provider_required
 @login_required
 def update_serviceprovider(request, *args, **kwargs):
     """
