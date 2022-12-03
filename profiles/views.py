@@ -81,12 +81,13 @@ def serviceprovider(request):
 
     """
     success_message = 'Your Services Profile has been added successfully'
-
+    # checking to see if user already has instance of serviceprovider instance
     try:
         testuser = request.user.userprofile.serviceprovider
         serviceprovider = ServiceProvider.objects.get(id=testuser.id)
         if ServiceProvider.objects.filter(id=serviceprovider.id).exists():
             return redirect('/')
+    # if user doesn't exists present user with form to fill out details
     except ServiceProvider.DoesNotExist:
         form = ServiceProviderForm(request.POST or None)
         if form.is_valid():
@@ -104,23 +105,27 @@ def update_serviceprovider(request, *args, **kwargs):
     This form is for Service Provider to update their services details.
     """
     success_message = 'Your Services Profile updated successfully'
+    # add try block in case new user tries to access my services profile before
+    # adding details
+    try:
+        if request.method == 'POST':
+            form = ServiceProviderForm(request.POST,
+                                       instance=request.user.userprofile.
+                                       serviceprovider)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.save()
+                messages.success(request, success_message)
+                return redirect('/')
 
-    if request.method == 'POST':
-        form = ServiceProviderForm(request.POST,
-                                   instance=request.user.userprofile.
-                                   serviceprovider)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.save()
-            messages.success(request, success_message)
-            return redirect('/')
+        else:
+            form = ServiceProviderForm(instance=request.user.userprofile.
+                                       serviceprovider)
 
-    else:
-        form = ServiceProviderForm(instance=request.user.userprofile.
-                                   serviceprovider)
+        context = {
+                    'form': form
+                    }
 
-    context = {
-                'form': form
-                }
-
-    return render(request, "profiles/myservices.html", context)
+        return render(request, "profiles/myservices.html", context)
+    except ServiceProvider.DoesNotExist:
+        return redirect('serviceprovider')
