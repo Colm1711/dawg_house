@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
-from django.views.generic.edit import FormView
 
 # Internal imports
 from .forms import UpdateUserForm, UpdateUserProfileForm, ServiceProviderForm
@@ -73,17 +72,30 @@ def delete_profile(request):
 def serviceprovider(request):
     """
     This form is for Service Provider to fill out their details.
+
+    Function will check to see if user exists via try/except.
+
+    If True will render home page.
+
+    If false will render the form to add details for first time.
+
     """
     success_message = 'Your Services Profile has been added successfully'
 
-    form = ServiceProviderForm(request.POST or None)
-    if form.is_valid():
-        form = form.save(commit=False)
-        form.user = request.user.userprofile
-        form.save()
-        messages.success(request, success_message)
-        return redirect('/')
-    return render(request, "profiles/serviceprovider.html", {"form": form})
+    try:
+        testuser = request.user.userprofile.serviceprovider
+        serviceprovider = ServiceProvider.objects.get(id=testuser.id)
+        if ServiceProvider.objects.filter(id=serviceprovider.id).exists():
+            return redirect('/')
+    except ServiceProvider.DoesNotExist:
+        form = ServiceProviderForm(request.POST or None)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.user = request.user.userprofile
+            form.save()
+            messages.success(request, success_message)
+            return redirect('/')
+        return render(request, "profiles/serviceprovider.html", {"form": form})
 
 
 @login_required
