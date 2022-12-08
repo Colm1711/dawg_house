@@ -11,9 +11,13 @@ class ServiceBooking(models.Model):
     """
     This is the class to store the data of the booking.
     """
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL,
+                                null=True, blank=True,
+                                related_name='bookings')
     service_provider_id = models.ForeignKey(ServiceProvider,
-                                            on_delete=models.CASCADE)
+                                            on_delete=models.SET_NULL,
+                                            null=True, blank=True,
+                                            related_name='bookings')
     booking_number = models.CharField(max_length=32, null=False,
                                       editable=False)
     start_date = models.DateField()
