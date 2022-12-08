@@ -1,4 +1,5 @@
 # Imports
+import uuid
 
 # Django imports
 from django.db import models
@@ -28,3 +29,9 @@ class ServiceBooking(models.Model):
 
     def __str__(self):
         return f"{self.user_id.email} | date: {self.date} | time: {self.time}"
+
+    def _generate_booking_number(self):
+        """
+        Generate a random, unique booking number using UUID
+        """
+        return uuid.uuid4().hex.upper()
