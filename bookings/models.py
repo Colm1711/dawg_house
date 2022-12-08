@@ -31,11 +31,19 @@ class ServiceBooking(models.Model):
     service_provider_approved = models.BooleanField(default=False)
     mod_is_approved = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f"{self.user_id.email} | date: {self.date} | time: {self.time}"
-
     def _generate_booking_number(self):
         """
         Generate a random, unique booking number using UUID
         """
         return uuid.uuid4().hex.upper()
+
+    def save(self, *args, **kwargs):
+        """
+        Override save method to set the booking number
+        """
+        if not self.booking_number:
+            self.booking_number = self._generate_booking_number()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.booking_number
