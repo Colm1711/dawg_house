@@ -4,6 +4,7 @@ from datetime import datetime
 # Django imports
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.conf import settings
 
 # Internal imports
 from .forms import BookingForm
@@ -19,6 +20,7 @@ def booking_form(request):
     success_message = 'Your booking has been processed successfully'
     template = 'booking_form.html'
     form = BookingForm(request.POST)
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
 
     if form.is_valid():
         form = form.save(commit=False)
@@ -31,7 +33,10 @@ def booking_form(request):
         return redirect('/')
 
     # pass forms to the html form
-    context = {'form': BookingForm}
+    context = {'form': BookingForm,
+               'stripe_public_key': stripe_public_key,
+               'client_secret': 'test client secret',
+               }
 
     return render(request, template, context)
 
