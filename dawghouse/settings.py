@@ -202,3 +202,9 @@ else:
     EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+
+# STRIPE
+STRIPE_CURRENCY = 'eur'
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
