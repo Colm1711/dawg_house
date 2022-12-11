@@ -17,7 +17,7 @@ def list_service_providers(request):
     """
     This function handles rendering list of service providers to the user
     """
-    serviceproviders = UserProfile.objects.all()
+    serviceproviders = UserProfile.objects.all().exclude(id=request.user.id)
     return render(request, 'search_services.html',
                   {'serviceproviders': serviceproviders})
 
