@@ -14,4 +14,4 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = ServiceBooking
-        fields = ('service_provider_id', 'start_date', 'end_date')
+        fields = ('start_date', 'end_date')
