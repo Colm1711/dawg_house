@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Profile-->
+<div class="border border-2">
+    <h1 class="display-4 text-center py-4">Service Providers</h1>
+    <div class="container pb-5">
+        <div class="row">
+            {% for serviceprovider in serviceproviders %}
+            {% if serviceprovider.is_service_provider is True %}
+            <div class="col-sm pb-5">
+                <div class="container border border-primary rounded mb-3 p-2">
+                    <h5>{{ serviceprovider.first_name }} {{ serviceprovider.last_name }}</h5>
+                    <p><small class="text-muted"> {{ serviceprovider.address_1 }}, {{ serviceprovider.county }}, {{ serviceprovider.eircode}}</small></p>
+                    <p>{{ serviceprovider.serviceprovider.get_service_type_display }}</p>
+                    <p class="fst-italic">{{ serviceprovider.serviceprovider.description }}</p> 
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            {%endif%}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <ul>
+                    {% for serviceprovider in serviceproviders %}
+                    {% if serviceprovider.is_service_provider is True %}
+                    <li>Name: {{ serviceprovider.first_name }} {{ serviceprovider.last_name }}</li>
+                    <li>Address: {{ serviceprovider.address_1 }}, {{ serviceprovider.county }},
+                        {{ serviceprovider.eircode}}
+                    </li>
+                    <li>Service: {{ serviceprovider.serviceprovider.get_service_type_display }}</li>
+                    <li>Description: {{ serviceprovider.serviceprovider.description }}</li>
+                    <li>Total Occupancy: {{ serviceprovider.serviceprovider.total_occupancy }}</li>
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the
+                                card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    {%endif%}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div> -->
