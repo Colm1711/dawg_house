@@ -23,8 +23,10 @@
                     <h5>{{ serviceprovider.first_name }} {{ serviceprovider.last_name }}</h5>
                     <p><small class="text-muted"> {{ serviceprovider.address_1 }}, {{ serviceprovider.county }}, {{ serviceprovider.eircode}}</small></p>
                     <p>{{ serviceprovider.serviceprovider.get_service_type_display }}</p>
-                    <p class="fst-italic">{{ serviceprovider.serviceprovider.description }}</p> 
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <p class="fst-italic">{{ serviceprovider.serviceprovider.description }}</p>
+                    <!--Reviews page link here-->
+                    <p class="fst-italic">Blah blah<a href="m">...more</a></p> 
+                    <a href="{%url 'bookingform' serviceprovider.id %}" class="btn btn-primary">Book Now</a>
                 </div>
             {%endif%}
             {% endfor %}
