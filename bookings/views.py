@@ -5,11 +5,23 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 # Internal imports
 from .forms import BookingForm
+from profiles.models import UserProfile
 
 
+def list_service_providers(request):
+    """
+    This function handles rendering list of service providers to the user
+    """
+    serviceproviders = UserProfile.objects.all()
+    return render(request, 'search_services.html',
+                  {'serviceproviders': serviceproviders})
+
+
+@login_required
 def booking_form(request):
     """
     This function handles rendering of the update page to the user
