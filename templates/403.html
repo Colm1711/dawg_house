@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Profile-->
+<div class="border border-2">
+    <h1 class="display-4 text-center py-4">403 Error(Internal Server Error)</h1>
+    <div class="container pb-5">
+        <p>Opps Something went wrong we are sorry!</p>
+        <p>Click here to go  <a href = "{% url 'home' %}">HOME</a></p>
+    </div>
+</div>
+{% endblock %}
