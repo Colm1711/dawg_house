@@ -12,3 +12,8 @@ def index(request):
 def about(request):
     """A view to show the about page"""
     return render(request, "home/about.html")
+
+
+def privacypolicy(request):
+    """A view to show the privacy policy page"""
+    return render(request, "home/privacypolicy.html")
