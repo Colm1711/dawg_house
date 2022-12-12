@@ -160,13 +160,13 @@ This model contains all fields stored in the database collections with their dat
 - The User model contains information about the user. It is part of the Django allauth library
 - The model contains the following fields: username, password, first_name, last_name, is_staff, is_active, is_superuser, last_login, date_joined
 
-##### Profile Model
-- The Meal model contains information about user such as contains further details such as email, fullname, phone number and address details for delivery purposes.
+##### User Profile Model
+- The User Profile contains information about user such as contains further details such as email, fullname, phone number and address details for delivery purposes.
 - It contains User as a foreign-key.
-- The model contains the following fields:  email, Name, phone_number, address1, address2, city, county, eir_code
+- The model contains the following fields:  email, Name, phone_number, address1, address2, county, eir_code, is_service_provider, acc_updated_on, acc_created_on
 
-##### Food_item Model
-- The category model contains the available meal items
+##### Service Provider Model
+- The Service Provider contains information about service provider such as contains further details
 - The model contains the following fields: food_name, food_image, description, price, slug
 
 ##### Review Model
@@ -175,54 +175,18 @@ This model contains all fields stored in the database collections with their dat
 - When user submits review it is sent to the back end for the admin to approve before being displayed to the site.
 - The model contains the following fields: Food_item, name, email, body, creation_date, approved.
 
-##### Order Model
-- The Order model the user to be able to submit order from the website with items and address details.
-- The model contains the following fields: creation_date, email, name, phone_number, address1, address2, city, county, eir_code.
-
-##### AboutMe Model
-- The About me model for the site owner to be able to update about me section of website with text on backend.
-- The model contains the following fields: about_text_body, date_modified.
+##### ContactModel
+- The Contact Us model for the site users to be able to contact website owner with queries and is sent to the backend.
+- The model contains the following fields: email, body, creation_date, is_replied.
 
 ## Scope
 ### User stories:
 
 #### First time and logged in user
-1.	As a first time user, I want to be able to see menu and what I can order.
-2.	As a first time user, I want to be able to navigate site easily
-3.	As a first time user, I want clear information on where the restaurant is located
-4.	As a first time user, I want to be able to order food online
-5.	As a first time user, I want to view reviews so that I know what others thought of previous orders
-6.	As a first time user, I want to view About me page so that I know more about the company and it’s ethos
-7.	As a logged in user, I want to be able to see other user’s comments and reviews
-8.	As a logged in user, I want to be able to be able to leave reviews
-9.	As a first time user, I want to be able to delete my review
-10.	As a first time user, I want to see confirmation page of my order so that I know how much it will cost and they have my correct details
-11.	As a first time user, I want to be able to know my order has been accepted
-12.	As a first time user, I want to know about the business and it’s ethos
-13.	As a first time user, I want to be able to update my profile
-14. As a logged in user, I want to be able to to sign in to, or create an account
-15. As a logged in user, I want to be able to log out of an account
-16. As a first time user, I want to be able to view the business’ social media
-17. As a logged in user, I want to be able to delete my profile
 
 
 #### Site Owner
-20.	As a site owner, I want to be able to Approve reviews
-21.	As a site owner, I want users to be to view our full menu
-22.	As a site owner, I want users to be able to view the food descriptions and prices
-23.	As a site owner, I want to Manage reviews
-24.	As a site owner, I want users to be able to see location of business
-25.	As a site owner, I want users to be able to leave a comment or review
-26.	As a site owner, I want users to be able to view other comments and reviews
-27.	As a site owner, I want users to be able to edit and delete comments or reviews
-28.	As a site owner, I want users to be able to find out about our business ethos
-29.	As a site owner, I want users to be able to navigate the site easily and quickly
-30. As a site owner, I want users to be able to sign in to, or create an account
-31. As a site owner, I want users to be able to log out of their account
-32. As a site owner, I want users to be able to see the menu
-33. As a logged in administrator, I want to be able to review and approve or delete user comments.
-34. As a site owner, I want users to be able to view the business’ social media
-35. As a logged in administrator, I want to be able to create, edit or remove content on the website.
+
 
 #### Error Flow
 36. As first time, I user should be able to navigate back through the site structure in case of page not found without using the browser back button.
@@ -301,9 +265,6 @@ Images choosen with done so with objective of enticing the user and naming schem
 
 The colour palette is:
 
- - #C8E6AC
- - #000000
- - text-white
 
 After choosing a colour scheme I tested a number of palette options to make sure the it met accessibility standards. Idea was to keep it clean & simple with focus on readability.
 
@@ -315,7 +276,7 @@ Montserrat was choosen as the sites font as it is great for creating a simple an
 
 ## Features
 
-The site contains 11 pages and
+The site contains X pages and
 1. Home page
 2. Full menu
 3. Food Item
@@ -461,17 +422,20 @@ These features covers the following user stories:
 #### Python Libraries
 
 * asgiref==3.5.2
-* cloudinary==1.29.0
-* crispy-bootstrap5==0.6
+* cloudinary==1.30.0
+* crispy-bootstrap5==0.7
 * dj-database-url==1.0.0
 * dj3-cloudinary-storage==0.0.6
-* Django==3.2.15
+* Django==3.2.16
+* django-allauth==0.41.0
 * django-crispy-forms==1.14.0
-* django-summernote==0.8.20.0
-* gunicorn==20.1.0
-* psycopg2==2.9.3
-* pytz==2022.2.1
-* sqlparse==0.4.2
+* oauthlib==3.2.2
+* psycopg2==2.9.5
+* python3-openid==3.2.0
+* pytz==2022.6
+* requests-oauthlib==1.3.1
+* sqlparse==0.4.3
+* stripe==5.0.0
 
 
 ### Frameworks & Tools
