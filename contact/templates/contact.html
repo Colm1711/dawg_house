@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Profile-->
+<div class="border border-2">
+    <h1 class="display-4 text-center py-4">Contact Us</h1>
+    <div class="container pb-5">
+        <form method = "POST" >
+            {% csrf_token %}
+            {% load crispy_forms_tags %}
+            {{ contact_form | crispy}}
+            <br>
+            <button class="btn btn-primary me-3" type="submit">Send message</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
