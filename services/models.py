@@ -31,3 +31,17 @@ class Size(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Breed(models.Model):
+    """
+    A model to hold the dog breeds.
+
+    Contains Breed name and is linked to sizes.
+    """
+    size = models.ForeignKey('Size', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
+    breed = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.breed
