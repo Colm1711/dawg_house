@@ -21,11 +21,8 @@
                 <div class="container border border-primary rounded mb-3 p-2">
                     <h5>{{ service.service_type }}</h5>
                     <p><small class="text-muted"> {{service.sub_heading}} </small></p>
-                    <p>&euro; {{service.cost}}  per service</p>
                     <p class="fst-italic">{{ service.description }}</p>
-                    <!--Reviews page link here-->
-                    <p class="fst-italic">Blah blah<a href="m">...more</a></p> 
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a href="{% url 'service_detail' service.id %}" class="btn btn-primary">Leanr more here</a>
                 </div>
             {% endfor %}
         </div>
