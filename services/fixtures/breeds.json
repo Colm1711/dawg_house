@@ -1,0 +1,346 @@
+[
+  {
+    "pk": 1,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Affenpinscher",
+      "size": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Afghan Hound",
+      "size": 2
+    }
+  },
+  {
+    "pk": 3,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Airedale Terrier",
+      "size": 2
+    }
+  },
+  {
+    "pk": 4,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Akbash Dog",
+      "size": 3
+    }
+  },
+  {
+    "pk": 5,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Akita",
+      "size": 2
+    }
+  },
+  {
+    "pk": 6,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Alaskan Husky",
+      "size": 2
+    }
+  },
+  {
+    "pk": 7,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Alaskan Malamute",
+      "size": 2
+    }
+  },
+  {
+    "pk": 8,
+    "model": "services.breed",
+    "fields": {
+      "breed": "American Bulldog",
+      "size": 2
+    }
+  },
+  {
+    "pk": 9,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Australian Sheepdog",
+      "size": 2
+    }
+  },
+  {
+    "pk": 10,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Basset Hound",
+      "size": 3
+    }
+  },
+  {
+    "pk": 11,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Beagle",
+      "size": 1
+    }
+  },
+  {
+    "pk": 12,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Border Collie",
+      "size": 2
+    }
+  },
+  {
+    "pk": 13,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Bernese Mountain Dog",
+      "size": 3
+    }
+  },
+  {
+    "pk": 14,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Bloodhound",
+      "size": 3
+    }
+  },
+  {
+    "pk": 15,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Boxer",
+      "size": 2
+    }
+  },
+  {
+    "pk": 16,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Bull Terrier",
+      "size": 2
+    }
+  },
+  {
+    "pk": 17,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Bullmastiff",
+      "size": 3
+    }
+  },
+  {
+    "pk": 18,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Chinook",
+      "size": 2
+    }
+  },
+  {
+    "pk": 19,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Chow Chow",
+      "size": 3
+    }
+  },
+  {
+    "pk": 20,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Dalmatian",
+      "size": 3
+    }
+  },
+  {
+    "pk": 21,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Doberman Pinscher",
+      "size": 2
+    }
+  },
+  {
+    "pk": 21,
+    "model": "services.breed",
+    "fields": {
+      "breed": "English Setter",
+      "size": 2
+    }
+  },
+  {
+    "pk": 22,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Golden Retriever",
+      "size": 2
+    }
+  },
+  {
+    "pk": 23,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Greyhound",
+      "size": 2
+    }
+  },
+  {
+    "pk": 24,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Irish Terrier",
+      "size": 1
+    }
+  },
+  {
+    "pk": 25,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Keeshond",
+      "size": 1
+    }
+  },
+  {
+    "pk": 26,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Labrador Retriever",
+      "size": 2
+    }
+  },
+  {
+    "pk": 27,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Maltese",
+      "size": 1
+    }
+  },
+  {
+    "pk": 28,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Miniature Schnauzer",
+      "size": 1
+    }
+  },
+  {
+    "pk": 29,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Norfolk Terrier",
+      "size": 1
+    }
+  },
+  {
+    "pk": 30,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Pomeranian",
+      "size": 1
+    }
+  },
+  {
+    "pk": 31,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Poodle",
+      "size": 2
+    }
+  },
+  {
+    "pk": 32,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Pug",
+      "size": 1
+    }
+  },
+  {
+    "pk": 33,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Rottweiler",
+      "size": 2
+    }
+  },
+  {
+    "pk": 34,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Saint Bernard",
+      "size": 3
+    }
+  },
+  {
+    "pk": 35,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Scottish Terrier",
+      "size": 1
+    }
+  },
+  {
+    "pk": 36,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Shiba Inu",
+      "size": 2
+    }
+  },
+  {
+    "pk": 37,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Siberian Husky",
+      "size": 2
+    }
+  },
+  {
+    "pk": 37,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Schnauzer",
+      "size": 2
+    }
+  },
+  {
+    "pk": 38,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Tibetan Mastiff",
+      "size": 3
+    }
+  },
+  {
+    "pk": 39,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Whippet",
+      "size": 3
+    }
+  },
+  {
+    "pk": 40,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Wire Fox Terrier",
+      "size": 1
+    }
+  },
+  {
+    "pk": 41,
+    "model": "services.breed",
+    "fields": {
+      "breed": "Yorkshire Terrier",
+      "size": 1
+    }
+  }
+]
