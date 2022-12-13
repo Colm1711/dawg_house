@@ -1,0 +1,26 @@
+[
+    {
+      "pk": 1,
+      "model": "services.size",
+      "fields": {
+        "name": "Small",
+        "additional_fee": 1.00
+      }
+    },
+    {
+      "pk": 2,
+      "model": "services.size",
+      "fields": {
+        "name": "Medium",
+        "additional_fee": 1.33
+      }
+    },
+    {
+      "pk": 3,
+      "model": "services.size",
+      "fields": {
+        "name": "Large",
+        "additional_fee": 1.66
+      }
+    }
+  ]

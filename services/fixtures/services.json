@@ -1,0 +1,38 @@
+[
+    {
+      "pk": 1,
+      "model": "services.service",
+      "fields": {
+        "service_type": "Dog Walking",
+        "service_length": "One Hour",
+        "cost": 30.00,
+        "sub_heading": "Great exercise for your fury friend",
+        "detail_1": "Flexible times",
+        "detail_2": "Interactive walks"
+      }
+    },
+    {
+      "pk": 2,
+      "model": "services.service",
+      "fields": {
+        "service_type": "Home Visit",
+        "service_length": "One Hour",
+        "cost": 60.00,
+        "sub_heading": "Company for your fury friend",
+        "detail_1": "Flexible times",
+        "detail_2": "Minimising separation anxiety"
+      }
+    },
+    {
+        "pk": 3,
+        "model": "services.service",
+        "fields": {
+          "service_type": "Day Kennel",
+          "service_length": "Full Day",
+          "cost": 90.00,
+          "sub_heading": "Vacation for your fury friend",
+          "detail_1": "Flexible times",
+          "detail_2": "Vacation for you and your furry friend"
+        }
+      }
+  ]
