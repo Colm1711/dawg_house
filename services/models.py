@@ -40,7 +40,7 @@ class Breed(models.Model):
     Contains Breed name and is linked to sizes.
     """
     size = models.ForeignKey('Size', null=True, blank=True,
-                                 on_delete=models.SET_NULL)
+                             on_delete=models.SET_NULL)
     breed = models.CharField(max_length=254)
 
     def __str__(self):
