@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Profile-->
+<div class="border border-2">
+    <h1 class="display-4 text-center py-4">Our Services</h1>
+    <div class="container pb-5">
+        <div class="row">
+            {% for service in services %}
+            <div class="col-sm pb-5">
+                <div class="container border border-primary rounded mb-3 p-2">
+                    <h5>{{ service.service_type }}</h5>
+                    <p><small class="text-muted"> {{service.sub_heading}} </small></p>
+                    <p>&euro; {{service.cost}}  per service</p>
+                    <p class="fst-italic">{{ service.description }}</p>
+                    <!--Reviews page link here-->
+                    <p class="fst-italic">Blah blah<a href="m">...more</a></p> 
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
