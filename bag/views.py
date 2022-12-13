@@ -26,10 +26,9 @@ def add_to_bag(request, service_id):
     bag = request.session.get('bag', {})
 
     if service_id in list(bag.keys()):
-        bag['service_id'] = quantity
+        bag[service_id] = quantity
     else:
         bag[service_id] = quantity
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
