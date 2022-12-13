@@ -7,8 +7,16 @@
 <div class="border border-2">
     <h1 class="display-4 text-center py-4">Bag</h1>
     <div class="container pb-5">
-
-
+        {% if bag_items %}
+        <div class="table-responsive rounded"></div>
+        {% else %}
+        <p class="lead mb-5 text-center">Your bag is empty.</p>
+        <div class="row-flex d-flex justify-content-around text-center">
+            <a href="{% url 'booking' %}" class="btn btn-primary rounded btn-lg">
+                <span class="text-uppercase">Make a booking</span>
+            </a>
+        </div> 
+        {% endif %}
     </div>
 </div>
 {% endblock %}
