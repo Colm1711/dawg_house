@@ -49,10 +49,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary',
     'bag',
-    'bookings',
     'profiles',
     'contact',
     'home',
+    'services',
 
     # Other
     'crispy_forms',
@@ -90,6 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
             ],
         },
     },
