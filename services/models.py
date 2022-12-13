@@ -18,3 +18,16 @@ class Service(models.Model):
 
     def __str__(self):
         return self.service_type
+
+
+class Size(models.Model):
+    """
+    A model to hold the sizes of dog.
+
+    Contains Name size and additional cost that incurs.
+    """
+    name = models.CharField(max_length=254)
+    additional_fee = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.name
