@@ -2,8 +2,9 @@
 
 # Djanog Imports
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
-# INternal imports
+# Internal imports
 from services.models import Service, Breed, Size
 
 
@@ -25,10 +26,24 @@ def add_to_bag(request, service_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if service_id in list(bag.keys()):
-        bag[service_id] = quantity
+    if breed:
+        if service_id in list(bag.keys()):
+            if breed in bag[service_id]['items_by_breed'].keys():
+                bag[service_id]['items_by_breed'][breed] += quantity
+                messages.info(request,
+                              (f'We have updated {quantity}\
+                              {service.service_type} for your dog of choice\
+                              {breed}'))
+            else:
+                bag[service_id]['items_by_breed'][breed] = quantity
+                messages.success(request, (f'We have added {quantity}\
+                                {service.service_type} for your dog of\
+                                 choice {breed}'))
+        else:
+            bag[service_id] = {'items_by_breed': {breed: quantity}}
+            messages.error(request, 'Please pick a breed!')
     else:
-        bag[service_id] = quantity
+        messages.error(request, 'You need to select your dogs breed!')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
