@@ -13,19 +13,23 @@ def bag_contents(request):
     total = 0
     service_count = 0
     bag = request.session.get('bag', {})
-
-    for service_id, quantity in bag.items():
+    for service_id, bag_data in bag.items():
         service = get_object_or_404(Service, pk=service_id)
-        service_count += quantity * service.cost
-        bag_items.append({
-            'service_id': service_id,
-            'quantity': quantity,
-            'service': service,
-        })
+        for breed, quantity in bag_data['items_by_breed'].items():
+            total += quantity * service.cost
+            service_count += quantity
+            bag_items.append({
+                'service_id': service_id,
+                'quantity': quantity,
+                'service': service,
+                'breed': breed,
+            })
 
     context = {
         'bag_items': bag_items,
+        'quantity': quantity,
         'total': total,
+        'service_count': service_count,
     }
-
+    print(total)
     return context
