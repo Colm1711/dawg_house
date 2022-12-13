@@ -103,8 +103,18 @@
                 {% endif %}
               </ul>
             </li>
-            <li class="nav-item ms-2 d-none d-md-inline">
-              <a class="btn btn-primary" href="{% url 'booking' %}">Book now</a>
+              <a class="nav-link" href="{% url 'view_bag' %}">
+                <div class="text-center text-primary ps-3">
+                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            €{{ grand_total|floatformat:2 }}
+                        {% else %}
+                            €0.00
+                        {% endif %}
+                    </p>
+              </div>
+            </a>
             </li>
           </ul>
         </div>
