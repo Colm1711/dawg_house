@@ -1,4 +1,9 @@
+# Imports
+
+# Django imports
 from django.shortcuts import render, get_object_or_404
+
+# Internal imports
 from .models import Service, Size, Breed
 
 

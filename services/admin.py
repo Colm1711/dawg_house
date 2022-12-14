@@ -1,4 +1,9 @@
+# Imports
+
+# Django imports
 from django.contrib import admin
+
+# Internal imports
 from .models import Size, Service, Breed
 
 
