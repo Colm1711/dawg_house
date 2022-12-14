@@ -11,7 +11,7 @@ from profiles.models import UserProfile
 
 
 class ServiceOrder(models.Model):
-    order_number = models.CharField(max_length=2, null=False, editable=False)
+    order_number = models.CharField(max_length=40, null=False, editable=False)
     user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True,
                              blank=True, related_name='orders')
     first_name = models.CharField(max_length=50, blank=False)
@@ -40,8 +40,7 @@ class ServiceOrder(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        sum = (self.lineitem.aggregate((Sum('lineitem_total'))
-               ['lineitem_total__sum']) or 0)
+        sum = (self.orderlineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']) or 0
         self.order_total = sum
         self.save
 
@@ -52,7 +51,7 @@ class ServiceOrder(models.Model):
         """
 
         if not self.order_number:
-            self.order.number = self._generate_booking_number()
+            self.order_number = self._generate_booking_number()
             super().save(*args, **kwargs)
 
     def __str__(self):
@@ -80,4 +79,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.service.sku} on order {self.order.order_number}'
+        return f'{self.order.order_number}'
