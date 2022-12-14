@@ -22,6 +22,12 @@
                     <p><small class="text-muted"> {{service.sub_heading}}</small></p>
                     <p class="fst-italic">{{ service.description }}</p>
                     <a href="{% url 'service_detail' service.slug %}" class="btn btn-primary">Learn more here</a>
+                    {% if request.user.is_superuser %}
+                    <small>
+                      <a class="btn btn-success float-end" href="{% url 'edit_service' service.slug %}">Edit</a>
+                      <a class="btn btn-danger float-end" href="{% url 'delete_service' service.slug %}">Remove</a>
+                    </small>
+                  {% endif %}
                 </div>
             {% endfor %}
         </div>
