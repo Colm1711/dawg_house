@@ -64,6 +64,9 @@
         <a href="{% url 'services' %}" class="btn btn-primary rounded">
             <span class="text-uppercase">Book another service</span>
         </a>
+        <a href="{% url 'checkout' %}" class="btn btn-success rounded">
+            <span class="text-uppercase">Checkout</span>
+        </a>
         {% else %}
         <p class="lead mb-5 text-center">Your bag is empty.</p>
         <div class="row-flex d-flex justify-content-around text-center">
