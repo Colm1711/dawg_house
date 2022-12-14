@@ -3,10 +3,11 @@
 # Django imports
 from django.shortcuts import render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
-
+from django.views import generic
+from django.contrib import messages
 # Internal imports
 from .models import Service, Size, Breed
-from .forms import BreedForm
+from .forms import ServiceForm
 
 
 def all_services(request):
@@ -38,23 +39,60 @@ def service_detail(request, slug):
 
 
 @staff_member_required
-def add_breed(request):
-    """Form to add new dog breed to site"""
-
+def add_service(request):
+    """ Add a new service to the site """
+    if not request.user.is_superuser:
+        messages.error(request, 'Hey, you are not authorised to be down here!')
+        return redirect(reverse('home'))
     if request.method == 'POST':
-        form = BreedForm(request.POST)
+        form = ServiceForm(request.POST)
         if form.is_valid():
-            breed = form.save
-            messages.success(request, 'Successfully added a new breed')
-            return redirect(reverse('services'), argrs=[breed.id])
+            service = form.save()
+            messages.success(request, 'Successfully added a new service')
+            return redirect(reverse('service_detail', args=[service.id]))
         else:
-            messages.info(request,
-                          'Failed to add the breed, please check the form!')
+            messages.error(request, 'Failed to add the new service'
+                                    'please check if form is valid')
     else:
-        form = BreedForm()
-        template = 'services/add_breed.html'
+        form = ServiceForm()
+    template = 'services/add_service.html'
     context = {
-        'form': form
+        'form': form,
     }
 
     return render(request, template, context)
+
+
+@staff_member_required
+def edit_service(request, slug):
+    """ Edit an existing service """
+    service = get_object_or_404(Service, slug=slug)
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES, instance=service)
+        if form.is_valid():
+            service = form.save()
+            messages.success(request, f'Successfully updated {service.name}!')
+            return redirect(reverse('service_detail', args=[service.id]))
+        else:
+            messages.info(request, f'Failed to update\
+                           {service.name}. Please ensure valid form.')
+    else:
+        form = ServiceForm(instance=service)
+        messages.info(request, f'You are editing {service.service_type}')
+
+        template = 'services/edit_service.html'
+        context = {
+            'form': form,
+            'service': service
+        }
+
+        return render(request, template, context)
+
+
+@staff_member_required
+def delete_service(request, slug):
+    """ Delete service from site """
+    service = get_object_or_404(Service, slug=slug)
+    service.delete()
+    messages.success(request, f'{service.name}has been deleted permanently')
+    return redirect(reverse('services'))
