@@ -1,7 +1,7 @@
 # Imports
 
 # Djanog Imports
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 
 # Internal imports
@@ -70,3 +70,19 @@ def adjust_bag(request, service_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
+
+def remove_from_bag(request, service_id):
+    """ Remove a service from the bag """
+    try:
+        breed = request.POST['breed']
+        bag = request.session.get('bag', {})
+
+        del bag[service_id]['items_by_breed'][breed]
+
+        request.session['bag'] = bag
+        messages.warning(request, f'You have removed the service for {breed}')
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
