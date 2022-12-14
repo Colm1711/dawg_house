@@ -14,10 +14,11 @@ def all_services(request):
     return render(request, 'services/services.html', context)
 
 
-def service_detail(request, service_id):
+def service_detail(request, slug):
     """ A view to show individual service details """
 
-    service = get_object_or_404(Service, pk=service_id)
+    service = get_object_or_404(Service, slug=slug)
+    print(service.slug)
     breeds = Breed.objects.order_by('breed')
     sizes = Size.objects.all()
 

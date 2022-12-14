@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Service(models.Model):
@@ -14,7 +15,24 @@ class Service(models.Model):
     sub_heading = models.CharField(max_length=254)
     detail_1 = models.CharField(max_length=254)
     detail_2 = models.CharField(max_length=254)
-    description = models.TextField()
+    description = models.TextField(max_length=1000,
+                                   null=True,
+                                   blank=True,)
+    slug = models.SlugField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        """
+        Generate a slug for service.
+        """
+        if not self.slug and self.service_type:
+            self.slug = slugify(self.service_type)
+        super(Service, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        """
+        A method to return the absolute url of service
+        """
+        return reverse('service_detail', args=[str(self.slug)])
 
     def __str__(self):
         return self.service_type

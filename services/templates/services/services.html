@@ -21,7 +21,7 @@
                     <h5>{{ service.service_type }}</h5>
                     <p><small class="text-muted"> {{service.sub_heading}}</small></p>
                     <p class="fst-italic">{{ service.description }}</p>
-                    <a href="{% url 'service_detail' service.id %}" class="btn btn-primary">Learn more here</a>
+                    <a href="{% url 'service_detail' service.slug %}" class="btn btn-primary">Learn more here</a>
                 </div>
             {% endfor %}
         </div>
