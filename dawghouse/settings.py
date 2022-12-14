@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary',
     'bag',
+    'checkout',
     'profiles',
     'contact',
     'home',
