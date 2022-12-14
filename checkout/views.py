@@ -13,6 +13,8 @@ from services.models import Service
 from .models import ServiceOrder, OrderLineItem
 from .forms import ServiceOderForm
 from bag.contexts import bag_contents
+from profiles.forms import RegisterForm
+from profiles.models import UserProfile
 
 
 @require_POST
@@ -54,8 +56,7 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
-            print(pid)
-            # order.stripe_pid = pid
+            order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order_form.save()
             for service_id, item_data in bag.items():
@@ -68,7 +69,6 @@ def checkout(request):
                             breed=breed,
                             quantity=quantity,
                         )
-                        print()
                         order_line_item.save()
                 except ServiceOrder.DoesNotExist:
                     messages.info(request, (
@@ -78,12 +78,14 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', 
+            return redirect(reverse('checkout_success',
                             args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
+
     else:
-        print('Here else')
         bag = request.session.get('bag', {})
         if not bag:
             messages.info(request, "There's nothing to checkout")
@@ -101,7 +103,7 @@ def checkout(request):
         order_form = ServiceOderForm()
 
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
+        messages.info(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
@@ -116,5 +118,40 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """ A view to return the success page"""
+
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(ServiceOrder, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        order.user_profile = profile
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'first_name': order_form.first_name,
+                'last_name': order_form.last_name,
+                'email': order_form.email,
+                'phone_number': order_form.phone_number,
+                'address_1': order_form.address_1,
+                'address_2': order_form.address_2,
+                'county': order_form.county,
+                'eircode': order_form.eircode,
+            }
+            user_profile_form = RegisterForm(profile_data, initial=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+    if 'bag' in request.session:
+        del request.session['bag']
+
     template = 'checkout/checkout_success.html'
-    return render(request, template)
+    context = {
+        'order': order,
+    }
+
+    return render(request, template, context)

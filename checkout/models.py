@@ -6,7 +6,7 @@ from django.db import models
 from django.db.models import Sum
 
 # Internal imports
-from services.models import Service
+from services.models import Service, Breed
 from profiles.models import UserProfile
 
 
@@ -35,14 +35,14 @@ class ServiceOrder(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    def update_order_total(self):
+    def update_total(self):
         """
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        sum = (self.orderlineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']) or 0
-        self.order_total = sum
-        self.save
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        print(self.order_total)
+        self.save()
 
     def save(self, *args, **kwargs):
         """
@@ -61,7 +61,7 @@ class ServiceOrder(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(ServiceOrder, null=False, blank=False,
                               on_delete=models.CASCADE,
-                              related_name='orderlineitems')
+                              related_name='lineitems')
     service = models.ForeignKey(Service, null=False, blank=False,
                                 on_delete=models.CASCADE)
     breed = models.CharField(max_length=40, null=True, blank=True)

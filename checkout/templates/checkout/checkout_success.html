@@ -5,9 +5,34 @@
 
 <!-- Contact -->
 <div class="border border-2">
-    <h1 class="display-4 text-center py-4">Payment Success</h1>
+    <h1 class="display-4 text-center py-4">Order Details</h1>
     <div class="container pb-5">
-
+        <div class="row">
+                <div class="container col-sm-7 border border-primary rounded mb-3 p-2">
+                    <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                    <p>Order Number: {{ order.order_number }}</p>
+                    <p><small class="text-muted">Order Date: {{ order.created_on|date:"D d M Y" }}</small></p>
+                    <p class="fst-italic">Total cost: {{ order.order_total }} </p>
+                    {% for item in order.lineitems.all %}
+                    <tr>
+                        <td class="p-3 w-25">
+                        </td>
+                        <td class="py-3">
+                            <h4 class="my-0"><strong>Service: {{ item.service.service_type }}</strong></h4>
+                            <p class="my-0">Breed: {{ item.breed }}</p>
+                            <p class="my-0">Quantity: {{ item.quantity}}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">Price per service: €{{ item.service.cost }}</p>
+                        </td>
+                        <br>
+                        <hr>
+                    </tr>
+                    {% endfor %}
+                    <p>Thank you for your purchase</p>
+                    <a href="{% url 'home'%}" class="btn btn-primary">Back to Home</a>
+                </div>
+        </div>
     </div>
 </div>
 {% endblock %}
