@@ -8,7 +8,9 @@ from services.models import Service
 
 
 def bag_contents(request):
-
+    """
+    Function to return the bag contents to user.
+    """
     bag_items = []
     total = 0
     service_count = 0
