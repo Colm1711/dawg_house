@@ -77,4 +77,7 @@ form.addEventListener('submit', function(ev) {
             }
         }
     });
+    }).fail(function(){
+        //just reload the page, the error will be messages
+        location.reload();
 });
