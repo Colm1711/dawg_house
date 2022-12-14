@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Profile-->
+<div class="border border-2">
+    <h1 class="display-4 text-center py-3">Your Order Summary</h1>
+    <div class="pb-5">
+        <div class="container border">
+            <p class="fw-light"> Order Summary: Services ({{ service_count }})</p>
+            {% for item in bag_items %}
+            <tr>
+                <td class="p-3 w-25">
+                </td>
+                <td class="py-3">
+                    <h4 class="my-0"><strong>Service: {{ item.service.service_type }}</strong></h4>
+                    <p class="my-0">Breed: {{ item.breed }}</p>
+                    <p class="my-0">Quantity: {{ item.quantity}}</p>
+                </td>
+                <td class="py-3">
+                    <p class="my-0">Price per service: €{{ item.service.cost }}</p>
+                </td>
+                <br>
+                <hr>
+            </tr>
+            {% endfor %}
+            <p><strong>Order total: €{{ total }}</strong></p>
+        </div>
+        <div class="container col-md-6 pt-5">
+            <p class="fw-light"> Fill out the details below to order services</p>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'checkout' %}">
+                {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{ order_form.first_name | as_crispy_field }}
+                {{ order_form.last_name | as_crispy_field }}
+                {{ order_form.email| as_crispy_field }}
+                {{ order_form.phone_number | as_crispy_field }}
+                {{ order_form.address_1 | as_crispy_field }}
+                {{ order_form.address_2 | as_crispy_field }}
+                {{ order_form.county | as_crispy_field }}
+                {{ order_form.eircode| as_crispy_field }}
+                <div class="form-group">
+                    <label for="card-element">Card Booking details</label>
+                    <div id="card-element" class="form-control" style='height: 2.4em; padding-top: .7em;'>
+                    </div>
+                </div>
+                    <!-- Used to display form errors -->
+                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>   
+                <div class="container pt-4">
+                    <div class="row-flex d-flex justify-content-around text-center">
+                        <button value="Add to Bag" class="btn btn-primary col-4" type="submit">Checkout</button>
+                    </div>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
