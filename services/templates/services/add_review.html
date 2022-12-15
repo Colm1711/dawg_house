@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Add Review-->
+<div class="border border-2">
+    <h1 class="display-4 text-center py-3">Add a Review</h1>
+    <div class="pb-5">
+        <div class="container col-md-6 col-lg-3">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{form | crispy}}
+                <div class="container pt-4">
+                    <div class="row-flex d-flex justify-content-around text-center">
+                        <button class="btn btn-primary col-4" type="submit">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
