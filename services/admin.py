@@ -4,7 +4,7 @@
 from django.contrib import admin
 
 # Internal imports
-from .models import Size, Service, Breed
+from .models import Size, Service, Breed, Comment
 
 
 @admin.register(Size)
@@ -63,3 +63,22 @@ class BreedAdmin(admin.ModelAdmin):
     search_fields = ['breed', 'size']
     list_filter = ('breed', 'size')
     ordering = ['breed']
+
+
+@admin.register(Comment)
+class ReviewAdmin(admin.ModelAdmin):
+    """
+    This is the class that controls the Admins view of the
+    reviews.
+    List how the content is presented to Amdmin User and provides list filter
+    panel.
+    Provides search fields: 'email', 'comment'
+    """
+    list_display = ('email', 'comment', 'service', 'created_on',
+                    'is_approved')
+    list_filter = ('is_approved', 'created_on')
+    search_fields = ('email', 'comment')
+    actions = ['approve_reviews']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
