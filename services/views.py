@@ -7,7 +7,7 @@ from django.views import generic
 from django.contrib import messages
 # Internal imports
 from .models import Service, Size, Breed, Comment
-from .forms import ServiceForm
+from .forms import ServiceForm, ReviewForm
 
 
 def all_services(request):
@@ -63,12 +63,30 @@ def delete_comment(request, id):
     return redirect(reverse('review_service'))
 
 
+def add_review(request):
+    """ Add a new review to service """
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added a new review')
+            return redirect('services')
+        else:
+            messages.error(request, 'Failed to add the new review'
+                                    'please check if form is valid')
+    else:
+        form = ReviewForm()
+    template = 'services/add_review.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
 @staff_member_required
 def add_service(request):
     """ Add a new service to the site """
-    if not request.user.is_superuser:
-        messages.error(request, 'Hey, you are not authorised to be down here!')
-        return redirect(reverse('home'))
     if request.method == 'POST':
         form = ServiceForm(request.POST)
         if form.is_valid():
