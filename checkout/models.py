@@ -35,14 +35,14 @@ class ServiceOrder(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    def update_total(self):
+    def update_total(self, *args, **kwargs):
         """
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        print(self.order_total)
-        self.save()
+        self.order_total = self.lineitems.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         """
