@@ -52,7 +52,7 @@ def service_comments(request, slug):
         'reviews': reviews,
     }
 
-    return render(request, 'services/add_review.html', context)
+    return render(request, 'services/review.html', context)
 
 
 def delete_comment(request, id):
