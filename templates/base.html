@@ -9,9 +9,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A website to connect dog owners with local Dogsitters, Dog walkers and Kennels">
-  <!--**ATTENTION NEED TO DO KEY WORD TO FILL IN SEO KEYWORDS HERE**-->
-  <meta name="keywords" content=>
+  <meta name="description" content="A website to connect dog owners with local Dogsitters, Dog walkers and Kennels who offer doggy day care. Book and pay securely.">
+  <meta name="keywords" content="Dog kennel, Dog Walking,  Dog Sitter, How much does Dog Sitter cost, How much does Dog Walker cost, How much does Dog Kennel cost, Dog sitter near me, Dog Kennel near me, Dog walker near me, Where to leave  my dog when I go to work, Where to leave dog while on vacation , Become a Dog sitter, Become a Dog walker, Dog sitters Ireland, Dog walkers Ireland, Dog kennels Ireland">
   <meta name="author" content="Colm O'Sullivan">
   <meta>
   {% endblock %}
@@ -61,12 +60,25 @@
         <a href="{% url 'home' %}" class="navbar-brand">
           <span class="fw-bold text-primary">Dawg House</span>
         </a>
+        <div class="col-md-5">
+        <a class="nav-link" href="{% url 'view_bag' %}">
+          <div class="text-center text-primary">
+              <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+              <p class="my-0">
+                  {% if grand_total %}
+                      €{{ grand_total|floatformat:2 }}
+                  {% else %}
+                  €{{ total }}
+                  {% endif %}
+              </p>
+          </div>    
+        </a>
+        </div>
         <!--toggle button for mobile nav-->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
           aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- navbar links -->
         <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul class="navbar-nav">
@@ -102,20 +114,6 @@
                 <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
                 {% endif %}
               </ul>
-            </li>
-              <a class="nav-link" href="{% url 'view_bag' %}">
-                <div class="text-center text-primary ps-3">
-                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                    <p class="my-0">
-                        {% if grand_total %}
-                            €{{ grand_total|floatformat:2 }}
-                        {% else %}
-                        €{{ total }}
-                        {% endif %}
-                    </p>
-              </div>
-            </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -159,7 +157,7 @@
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0 text-muted">About</a></li>
             <li class="nav-item mb-2"><a href="{% url 'privacypolicy' %}" class="nav-link p-0 text-muted" aria-label="Link to our Privacy Policies">Privacy Policy</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted" aria-label="Link to our Terms and Conditions">Terms and Conditions</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'termsconditions' %}" class="nav-link p-0 text-muted" aria-label="Link to our Terms and Conditions">Terms and Conditions</a></li>
             <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0 text-muted" aria-label="Link to Contact Us page">Contact Us</a></li>
           </ul>
         </div>
