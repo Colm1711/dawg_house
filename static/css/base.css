@@ -4,7 +4,7 @@ html {
 
 /* Hero Section */
 #hero{
-    background: url('/media/dog-hero-sm.avif') no-repeat center;
+    background: url('/static/images/dog-hero-sm.avif') no-repeat center;
     background-size: cover;
 }
 
@@ -47,7 +47,7 @@ html {
 @media (min-width: 768px) {
     /* Hero Section */
     #hero{
-        background: url('/media/dog-hero.avif') no-repeat;
+        background: url('/static/images/dog-hero.avif') no-repeat;
         background-size: cover;
         background-position-x: 65%;
     }
@@ -75,7 +75,7 @@ html {
 @media (min-width: 1024px) {
     /* Hero Section */
     #hero{
-        background: url('/media/dog-hero.avif') no-repeat center;
+        background: url('/static/images/dog-hero.avif') no-repeat center;
         background-size: cover;
     }
 
