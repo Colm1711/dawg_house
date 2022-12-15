@@ -23,7 +23,7 @@
               <div class="container pt-4">
                 <div class="row-flex d-flex justify-content-around text-center">
                   <button class="btn btn-primary col-4" type="submit">Edit</button>
-                  <a class="btn btn-danger col-4" href="#">Delete</a>
+                  <a class="btn btn-danger col-4" href="{% url 'delete_service' service.id %}">Delete</a>
                 </div>
               </div>
             </form>
