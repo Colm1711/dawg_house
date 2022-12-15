@@ -17,3 +17,8 @@ def about(request):
 def privacypolicy(request):
     """A view to show the privacy policy page"""
     return render(request, "home/privacypolicy.html")
+
+
+def termsconditions(request):
+    """A view to show the terma and conditions page"""
+    return render(request, "home/termsconditions.html")
