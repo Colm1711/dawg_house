@@ -58,7 +58,7 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            order_form.save()
+            order.save()
             for service_id, item_data in bag.items():
                 try:
                     service = get_object_or_404(Service, pk=service_id)
