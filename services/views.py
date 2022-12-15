@@ -6,7 +6,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.views import generic
 from django.contrib import messages
 # Internal imports
-from .models import Service, Size, Breed
+from .models import Service, Size, Breed, Comment
 from .forms import ServiceForm
 
 
@@ -36,6 +36,20 @@ def service_detail(request, slug):
     }
 
     return render(request, 'services/service_detail.html', context)
+
+
+def service_comments(request, slug):
+    """ A view to show individual service details """
+
+    service = get_object_or_404(Service, slug=slug)
+    reviews = Comment.objects.filter(service=service.id)
+
+    context = {
+        'service': service,
+        'reviews': reviews,
+    }
+
+    return render(request, 'services/add_review.html', context)
 
 
 @staff_member_required
