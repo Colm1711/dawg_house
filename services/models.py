@@ -66,3 +66,22 @@ class Breed(models.Model):
 
     def __str__(self):
         return self.breed
+
+
+class Comment(models.Model):
+    """
+    This is the review model for services for user to leave a review
+    on a service to let others know thoughts.
+    """
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    name = models.CharField(max_length=80, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    comment = models.TextField(max_length=254, null=False, blank=False)
+    is_approved = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"Review {self.body} by {self.name}"
