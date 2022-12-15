@@ -22,10 +22,11 @@
                     <h5>{{ service.service_type }}</h5>
                     <p><small class="text-muted"> {{service.sub_heading}}</small></p>
                     <p class="fst-italic">{{ service.description }}</p>
-                    <a href="{% url 'service_detail' service.slug %}" class="btn btn-primary">Learn more here</a>
-                    {% if request.user.is_superuser %}
+                    <a href="{% url 'service_detail' service.slug %}" class="btn btn-primary">Make booking here</a>
+                {% if request.user.is_superuser %}
                       <a class="btn btn-success float-end" href="{% url 'edit_service' service.slug %}">Edit</a>
-                  {% endif %}
+                {% endif %}
+                  <p class="pt-2"><a href="{% url 'review_service' service.slug %}">See Reviews</a></p>
                 </div>
             {% endfor %}
             {% if request.user.is_superuser %}
