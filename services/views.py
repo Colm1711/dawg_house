@@ -1,7 +1,7 @@
 # Imports
 
 # Django imports
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views import generic
 from django.contrib import messages
@@ -39,7 +39,10 @@ def service_detail(request, slug):
 
 
 def service_comments(request, slug):
-    """ A view to show individual service details """
+    """ A view to show individual service reviews
+
+        Here user comments are returned as reviews
+     """
 
     service = get_object_or_404(Service, slug=slug)
     reviews = Comment.objects.filter(service=service.id)
@@ -50,6 +53,14 @@ def service_comments(request, slug):
     }
 
     return render(request, 'services/add_review.html', context)
+
+
+def delete_comment(request, id):
+    """ Delete review from service reviews """
+    review = Comment.objects.filter(pk=id)
+    review.delete()
+    messages.success(request, f'Your review has been deleted permanently')
+    return redirect(reverse('review_service'))
 
 
 @staff_member_required
@@ -63,7 +74,7 @@ def add_service(request):
         if form.is_valid():
             service = form.save()
             messages.success(request, 'Successfully added a new service')
-            return redirect(reverse('service_detail', args=[service.id]))
+            return redirect('services')
         else:
             messages.error(request, 'Failed to add the new service'
                                     'please check if form is valid')
@@ -104,9 +115,10 @@ def edit_service(request, slug):
 
 
 @staff_member_required
-def delete_service(request, slug):
+def delete_service(request, id):
     """ Delete service from site """
-    service = get_object_or_404(Service, slug=slug)
+    service = get_object_or_404(Service, pk=id)
     service.delete()
-    messages.success(request, f'{service.name}has been deleted permanently')
-    return redirect(reverse('services'))
+    messages.success(request, f'{service.service_type} has been deleted\
+                     permanently')
+    return redirect('services')
