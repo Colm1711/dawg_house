@@ -26,6 +26,7 @@
                         <p class="fst-italic">{{ service.description }}</p>
                     </div>
                     <div class="p-2 col-md-8">
+                        <h2>What benefits can you expect?</h2>
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-primary">{{ service.detail_1 }}</li>
                             <li class="list-group-item list-group-item-light">{{ service.detail_2 }}</li>
@@ -85,7 +86,7 @@
                     </form>
                     <div class="p-2">
                         <!--Reviews page link here-->
-                        <p class="fst-italic">Blah blah<a href="m">...more</a></p>
+                        <p class="pt-2"><a href="{% url 'review_service' service.slug %}">See Reviews</a></p>
                     </div>
                 </div>
             </div>
