@@ -8,6 +8,25 @@ html {
 #hero{
     background: url('../images/dog-hero-sm.avif') no-repeat center;
     background-size: cover;
+
+}
+
+/*Showcase on Landing page*/
+.booking-card {
+    position: relative;
+    animation-name: content;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes content {
+    0% {
+        left: -1000px;
+    }
+
+    100% {
+        left: 0px;
+    }
 }
 
 .booking-card{
@@ -53,7 +72,7 @@ html {
         background-size: cover;
         background-position-x: 65%;
     }
-    
+
     .booking-card {
         display: block;
         top: 125px;
