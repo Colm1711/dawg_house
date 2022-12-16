@@ -23,7 +23,7 @@
                     <p class="fst-italic">{{ review.comment}}</p>
                     <p><small class="text-muted"> {{review.name}}</small></p>
                     <p><small class="text-muted"> {{review.created_on}}</small></p>
-                    {% if review.email == user.userprofile.email %}
+                    {% if review.email == user.email %}
                     <a class="btn btn-danger col-4" href="{% url 'delete_review' review.id %}">Delete</a>
                     {% endif %}
                 </div>
