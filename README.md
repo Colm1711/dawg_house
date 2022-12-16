@@ -330,22 +330,18 @@ This feature covers the following user stories
 29. As a site owner, I want users to be sign up to a newsletter to capture user information
 
 
-### Page 2 - Services page
+### Page 2 - Staff edit Services page
 
-#### Feature 3 Holds all the service items. It clearly displays name of food, description. 
+#### Feature 3 Holds all the service items that can be updated. 
 <br>![Menu model](readme/features/servicespage.png)
 This feature covers the following user stories:
 
-1.	As a first time user, I want to be able to see menu and what I can order.
-21.	As a site owner, I want users to be to view our full menu
-22.	As a site owner, I want users to be able to view the food descriptions and prices
 
-32. As a site owner, I want users to be able to see the menu
 31. As a staff user, I want to be able to update and edit services descriptions, details and prices
 32. As a staff user, I want to be able to delete services
 33.  As a staff user, I want to be able to add a services
 34. As a staff user, I want to be able to manage services
-
+35. As a Site user, I want to be shown messages that my actions have been successful and unsuccessful
 
 ### Page 3 - Services Detailspage
 
@@ -357,21 +353,11 @@ This feature covers the following user stories:
 
 9. As Site User I want to see what rates are available so I can select boardings that fit my budget.   
 21. As Site User I want to be able to navigate back to the services page after viewing service details
+35. As a Site user, I want to be shown messages that my actions have been successful and unsuccessful
 
-### Page 4 - Order Now
+### Page 4 Checkout
 
-#### Feature 5 Order Page Form - allows users to select items to order and fill out details to deliver to.
-<br>![Navbar model](readme/order_1.png)
-This feature covers the following user stories:
-
-1.	As a first time user, I want to be able to see menu and what I can order.
-4.	As a first time user, I want to be able to order food online.
-21.	As a site owner, I want users to be to view our full menu
-22.	As a site owner, I want users to be able to view the food descriptions and prices
-32. As a site owner, I want users to be able to see the menu
-35. As a logged in administrator, I want to be able to create, edit or remove content on the website.
-
-#### Feature 6 Checkout Page - Confirms details of order & cost. User can proceed to checkout details page which takes payment.
+#### Feature 5 Checkout Page - Confirms details of order & cost. User can proceed to checkout details page which takes payment.
 <br>![Navbar model](readme/features/checkout.png)
 <br>![Navbar model](readme/features/checkout_form.png)
 This feature covers the following user stories:
@@ -380,40 +366,68 @@ This feature covers the following user stories:
 22. As Site User I want to be able to view services added to my shopping bag 
 23. As Site User I want to be able to checkout and purchase services
 24. As Site User I want to be able to increase quantities and remove items from my shopping bag
+35. As a Site user, I want to be shown messages that my actions have been successful and unsuccessful
 
 ### Page 5 - About Me
 
-#### Feature 7 - Share company ethos, content is updated from the backend.
-<br>![Navbar model](readme/ethos.png)
+#### Feature 6 - Share company ethos, content is updated from the backend.
+<br>![Navbar model](readme/features/about.html.png)
 This feature covers the following user stories:
 
-12.	As a first time user, I want to know about the business and it’s ethos
-24.	As a site owner, I want users to be able to see location of business
-28.	As a site owner, I want users to be able to find out about our business ethos
-29.	As a site owner, I want users to be able to navigate the site easily and quickly
-35. As a logged in administrator, I want to be able to create, edit or remove content on the website.
+2. As Site User I want About Me page so I can learn more about the company and it’s culture.   
 
-### Page 6 - Sign In/ Log In and Update Profile
-<br>![Register model](readme/register.png)
+### Page 6 - Sign in
+### Page 7 - Login
+### Page 8 - Sign Out
+### Page 9 - Service Provder Sign Up
+### Page 10 - Servie Provider Update
 
-<br>![Login model](readme/login_dets.png)
+#### Feature 7, 8, 9 Sign In/ Log In and Update Profile, Sign Service Profile
+<br>![Register model](readme/features/signup.png)
 
-<br>![Update model](readme/update_profile.png)
+<br>![Login model](readme/features/signin.png)
 
-<br>![Delete model](readme/update_delete_profile.png)
+<br>![Update model](readme/features/update.png)
+
+<br>![Update model](readme/features/updateservices.png)
+
+<br>![Update model](readme/features/signout.png)
 
 These features covers the following user stories:
 
-8.	As a logged in user, I want to be able to be able to leave reviews
-9.	As a first time user, I want to be able to delete my review
-14. As a logged in user, I want to be able to to sign in to, or create an account
-15. As a logged in user, I want to be able to log out of an account
-25.	As a site owner, I want users to be able to leave a comment or review
-26.	As a site owner, I want users to be able to view other comments and reviews
-27.	As a site owner, I want users to be able to edit and delete comments or reviews
-30. As a site owner, I want users to be able to sign in to, or create an account
-31. As a site owner, I want users to be able to log out of their account
-35. As a logged in administrator, I want to be able to create, edit or remove content on the website.
+4. As Site User I want to be able to create User Profile.   
+5. As Site User I want to be able to modify User Profile so I can easily update new details.  
+6. As Site User I want to be able to delete my User Profile so I can easily remove my details from site.  
+15. As Site User to be able to sign up to be a service provider.
+16. As Service Provider I want to be able to modify Profile so I can easily update new details .
+17. As Service Provider I want to be able to delete my Profile so I can easily remove my details from site.
+25. As an authenticated user, I want to be able to log in to / sign out of an existing account
+26. As an authenticated user, I want to be able to view and update my personal information in my profile
+27. As an authenticated user, I want confirmation that I have signed out of my account
+35. As a Site user, I want to be shown messages that my actions have been successful and unsuccessful
+
+### Page 11 - Reviews
+
+#### Feature 10 - This is where users can Leave & Delete Reviews
+
+10. As Site User I want to see some user reviews so I can see what other users experiences were like using the site.
+11. As Site User I want to be able to leave reviews so I can let others know 
+
+
+<br>![Register model](readme/features/reviews.png)
+
+<br>![Login model](readme/features/no-reviews.png)
+
+<br>![Login model](readme/features/add-review-success.png)
+
+### Page 12 Services
+
+#### Feature 12 - This is where users can Leave & Delete Reviews
+
+<br>![Register model](readme/features/servicespage.png)
+
+22. As Site User I want to be able to view services added to my shopping bag
+23. As Site User I want to be able to checkout and purchase services
 
 ## Technologies Used
 
@@ -533,286 +547,6 @@ The website was tested on the following devices:
   - Firefox Browser 99.0.1 (64-bit)
   - Safari (64-bit)
 
-### Testing user stories
-
-1. As a first time user, I want to be able to see menu and what I can order.
-21.	As a site owner, I want users to be to view our full menu
-32. As a site owner, I want users to be able to see the menu
-
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Menu page   | Select any menu option from main nav bar           |     Menu page is displayed with information                | Works as expected |
-|     Menu page      |    Select nav item link on home page        |    Menu page is displayed with images and information by category                 | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/home_test.png">
-</details>
-<hr>
-2. As a first time user, I want to be able to navigate site easily.
-29.	As a site owner, I want users to be able to navigate the site easily and quickly
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Nav bar page   | Select any option from main nav bar           |     Menu page is displayed with information                | Works as expected |
-|     Nav bar page       |    Select nav item links        |    Menu page is displayed with images and information by category                 | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/home_test.png">
-</details>
-<hr>
-3. As a first time user, I want clear information on where the restaurant is located.
-24.	As a site owner, I want users to be able to see location of business
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Footer   | Navigate to any page           |     See contact and location is displayed with information                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/footer.png">
-</details>
-<hr>
-4.	As a first time user, I want to be able to order food online
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Order Now   | Navigate to order menu          |     Fill out form and select Item to order                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/order_val.png">
-</details>
-<hr>
-5.	As a first time user, I want to view reviews so that I know what others thought of previous orders
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Menu Item   | Navigate to menu items         |     See food items                | Works as expected |
-|  Menu Item   | Navigate to menu item         |     See food item details                | Works as expected |
-|  Menu Item   | Navigate to menu item review         |     See past reviews from other users                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/review_val.png">
-</details>
-<hr>
-6.	As a first time user, I want to view About me page so that I know more about the company and it’s ethos
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  About  | Navigate to about page        |     See details on companies ethos                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/about_val.png">
-</details>
-<hr>
-7.	As a first time user I want to be able to see other user’s comments and reviews
-26.	As a site owner, I want users to be able to view other comments and reviews
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Menu Item   | Navigate to Menu        |    See menu items              | Works as expected |
-|  Menu Item   | Navigate to Food Item        |     See a reviews            | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/review_val.png">
-</details>
-<hr>
-8.	As a logged in user, I want to be able to be able to leave reviews
-25.	As a site owner, I want users to be able to leave a comment or review
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Menu Item | Login to site         |     After filling in details logged in                | Works as expected |
-|  Menu Item   | Navigate to Menu        |    See menu items              | Works as expected |
-|  Menu Item   | Navigate to Food Item        |     Leave a review option               | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/leave_review_val.png">
-</details>
-<hr>
-9.	As a first time user, I want to be able to delete my review
-27.	As a site owner, I want users to be able to edit and delete comments or reviews
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Menu Item | Login to site         |     After filling in details logged in                | Works as expected |
-|  Menu Item   | Navigate to Menu        |    See menu items              | Works as expected |
-|  Menu Item   | Navigate to Food Item        |     Delete a review option               | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/delete_review_val.png">
-</details>
-<hr>
-10.	As a first time user, I want to see confirmation page of my order so that I know how much it will cost and they have my correct details
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Order Now   | Navigate to order menu          |     Fill out form and select Item to order                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/order_val.png">
-</details>
-<hr>
-11.	As a first time user, I want to be able to know my order has been accepted
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Order Now   | Navigate to order menu          |     Fill out form and select Item to order                | Works as expected |
-|  Order Now   | Fill out form and submit         |     Taken to confirmation page                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/order_val.png">
-</details>
-<hr>
-12.	As a first time user, I want to know about the business and it’s ethos
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  About  | Navigate to about page        |     See details on companies ethos                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/about_val.png">
-</details>
-<hr>
-13. As a logged in user, I want to be able to update my profile
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Sign In/ Log In and Update Profile  | Navigate to Profile tab       |     Click on Update Profile option                | Works as expected |
-|  Sign In/ Log In and Update Profile  | Change detail on form and submit       |     Detail is updated              | Works as expected |
-|  Sign In/ Log In and Update Profile  | No Action needed       |     Profile is updated              | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/update_profile_val.png">
-</details>
-<hr>
-
-14. As a first in user, I want to be able to to sign in to or create an account
-30. As a site owner, I want users to be able to sign in to, or create an account
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Sign In/ Log In and Update Profile  | Navigate to Login/Sign Up        |     Click on Sign Up option                | Works as expected |
-|  Sign In/ Log In and Update Profile  | Navigate to Login/Sign Up        |     Fill out form               | Works as expected |
-|  Sign In/ Log In and Update Profile  | Filled out form       |     Auto Login               | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/signup_val.png">
-</details>
-<hr>
-
-15. As a logged in user, I want to be able to log out of an account
-31. As a site owner, I want users to be able to log out of their account
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Sign In/ Log In and Update Profile | Navigate to logout option       |     After selecting option logout                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/logout_val.png">
-</details>
-<hr>
-16. As a first time user, I want to see confirmation page of my order so that I know how much it will cost and they have my correct details
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Order Now   | Navigate to order menu          |     Fill out form and select Item to order                | Works as expected |
-|  Order Now   | Fill out form and submit         |     Taken to confirmation page                | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/order_val.png">
-</details>
-<hr>
-18. As a logged in user, I want to be able to delete my profile
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Sign In/ Log In and Update Profile  | Navigate to Profile tab       |     Click on Update Profile option                | Works as expected |
-|  Sign In/ Log In and Update Profile  | Select Delete Profile       |    Asked for confirmation              | Works as expected |
-|  Sign In/ Log In and Update Profile  | No Action needed       |     Profile is deleted              | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/delete_profile_val.png">
-</details>
-<hr>
-20.	As a site owner, I want to be able to Approve reviews
-23.	As a site owner, I want to Manage reviews
-
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Food Item page   | Sign in to admin panel          |     Land at admin panel menu                | Works as expected |
-|  Food Item page   | Select Reviews panel         |     Taken to food item reviews              | Works as expected |
-|  Food Item page   | Select Review and tick apporved option         |     Taken to review and apporved option now ticked              | Works as expected |
-|  Food Item page   | Reviews Panel check         |     See food item review is approved              | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/approve_review.png">
-</details>
-<hr>
-22.	As a site owner, I want users to be able to view the food descriptions and prices
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Food Item page   | Sign in to admin panel          |     Land at admin panel menu                | Works as expected |
-|  Food Item page   | Select Food Item panel         |     Taken to food item panel              | Works as expected |
-|  Food Item page   | Select Food item and can update details        |    See food item is updated            | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/admin_food_item_val.png">
-</details>
-<hr>
-23.	As a site owner, I want to Manage reviews
-33. As a logged in administrator, I want to be able to review and approve or delete user reviews.
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Food Item page   | Sign in to admin panel          |     Land at admin panel menu                | Works as expected |
-|  Food Item page   | Select Reviews panel         |     Taken to food item reviews              | Works as expected |
-|  Food Item page   | Select Review and select action delete review         |    See food item review is now deleted              | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/admin_delete_review.png">
-</details>
-<hr>
-
-27.	As a site owner, I want users to be able to edit and delete comments or reviews
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Food Item page   | User edits review          |     Review goes for approval                | Works as expected |
-|  Food Item page   | Sign in to admin panel          |     Land at admin panel menu                | Works as expected |
-|  Food Item page   | Select Reviews panel         |     Taken to food item reviews              | Works as expected |
-|  Food Item page   | Select Review and approve edited review         |    See food item approved             | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/approve_review.png">
-</details>
-<hr>
-
-28.	As a site owner, I want users to be able to find out about our business ethos
-35. As a logged in administrator, I want to be able to create, edit or remove content on the website.
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Food Item page   | Sign in to admin panel          |     Land at admin panel menu                | Works as expected |
-|  Food Item page   | Select About panel         |     Taken to About Me panel              | Works as expected |
-|  Food Item page   | Select About me text and edit         |    See About section is updated            | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/admin_about.png">
-</details>
-<hr>
-34. As a site owner, I want users to be able to view the business’ social media
-
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-|  Footer   | Navigate to any page           |     See social media links at end of page               | Works as expected |
-|  Footer   | Click on any link          |     taken to appropriate site on new tab              | Works as expected |
-
-<details><summary>Images</summary>
-<img src="readme/footer.png">
-</details>
-<hr>
 
 ## Bugs
 
