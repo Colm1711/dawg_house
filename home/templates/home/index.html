@@ -14,69 +14,28 @@
 <section id="hero" class="vh-100">
     <div class="container pt-5">
         <div class="row">
-            <div class="col-lg-7 col-md-9">
+            <div class="col-lg-7 col-md-9  pt-5">
                 <div class="card booking-card">
-                    <h3 class="card-header text-lead">Service I am looking for</h3>
-                    <div class="card-body">
-                        <div class="row pb-4 ms-3">
-                            <div class="form-check form-check-inline  col-md-3">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Kennel Boarding</label>
-                            </div>
-                            <div class="form-check form-check-inline col-md-3">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Pet Sitting</label>
-                            </div>
-                            <div class="form-check form-check-inline col-md-3">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Dog walking</label>
-                            </div>
+                    <div class="jumbotron">
+                        <h3 class="card-header text-lead">What Serice are you looking for?</h3>
+                        <div class="ps-4 pb-4 lead">
+                            Our services
                         </div>
-                        <div class="row pb-4 ms-2">
-                            <div class="col-md-4">
-                                <label for="exampleFormControlInput1" class="form-label">Near</label>
-                                <input type="eir_code" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Your Eircode">
+                            <div class="px-5 d-flex justify-content-around">
+                                <i class="fa-sharp fa-solid fa-house-laptop">House Sitting</i>
+                                <i class="fa-solid fa-dog">Dog walking</i>
+                                <i class="fa-solid fa-plane-departure">Dog Kennel</i>
                             </div>
-                            <div class="col-md-4">
-                                <label for="from_date" class="form-label">From:</label>
-                                <input type="date" class="form-control" id="from_date" name="from_date">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="to_date" class="form-label">Until:</label>
-                                <input type="date" class="form-control" id="to_date" name="to_date">
-                            </div>
-                        </div>
-                        <div class="row pt-3 ms-3">
-                            <div class="form-check form-check-inline col-md-2">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Small 0-10kg</label>
-                            </div>
-                            <div class="form-check form-check-inline col-md-2">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Medium 10kg to 25kg</label>
-                            </div>
-                            <div class="form-check form-check-inline col-md-2">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Large 25-55kg+</label>
-                            </div>
-                            <h4 class="pt-2 col-md-5">
-                                <a href="{% url 'services' %}" class="btn btn-primary">Search</a>
-                            </h4>
-                        </div>
-                    </div>
+                        <div class="py-4 text-center">
+                            <a href="{% url 'services' %}" class="col-6 btn btn-primary">Book Today</a>
+                        </div>  
+                      </div>
                 </div>
             </div>
             <h4 class="pt-5 col-12 search-btn text-center">
                 <p>Book vetted local dog kennels, sitters & walkers who will care for and love your dog like you would
                 </p>
-                <a href="{% url 'services' %}" class="btn btn-primary sm-btn">Search</a>
+                <a href="{% url 'services' %}" class="btn btn-primary sm-btn">Book Today</a>
             </h4>
         </div>
     </div>
@@ -87,7 +46,7 @@
     <h4 class="py-5 text-center fw-bolder">Services that our members provide</h4>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -145,8 +104,8 @@
                     </div>
                 </div>
             </div>
-        
-            <div class="col servicecard">
+
+            <div class="col-lg-6 pt-lg-0 pt-md-3 servicecard d-lg-flex align-items-stretch">
                 <div class="card">
                     <div class="card-header text-center fw-bold">
                         Book these services with peace of mind
@@ -160,7 +119,8 @@
                         <a href="#" class="btn btn-primary col-12">Book with us today</a>
                     </div>
                     <div class="card-footer text-muted text-center">
-                        TC & C's - link
+                        <a href="{% url 'termsconditions' %}" class="nav-link p-0 text-muted"
+                            aria-label="Link to our Terms and Conditions">Terms and Conditions</a>
                     </div>
                 </div>
             </div>
@@ -180,7 +140,8 @@
                     <img src="{% static 'images/mike.avif' %}" class="card-img-top" alt="picture of a man and his dog">
                     <div class="card-body">
                         <h5 class="card-title">Mike</h5>
-                        <p class="card-text fst-italic">"I was concerned about leaving Milo with a stranger, but after coming back
+                        <p class="card-text fst-italic">"I was concerned about leaving Milo with a stranger, but after
+                            coming back
                             and seeing he nearly didn't want to leave the kennel that all disappeared. Going forward
                             Dawg House will be my go to for pet kennel care!"</p>
                     </div>
@@ -188,16 +149,19 @@
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="{% static 'images/jane.avif' %}" class="card-img-top" alt="picture of a woman and her dog">
+                    <img src="{% static 'images/jane.avif' %}" class="card-img-top"
+                        alt="picture of a woman and her dog">
                     <div class="card-body">
                         <h5 class="card-title">Jane</h5>
-                        <p class="card-text fst-italic">"The sitter we found on Dawg House took on my dog at short notice and met
+                        <p class="card-text fst-italic">"The sitter we found on Dawg House took on my dog at short
+                            notice and met
                             expectations and beyond! I wouldn't hesitate in using Dawg House going forward in the
                             future."</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>    
 </section>
 
 <!--How It Works-->
@@ -207,25 +171,28 @@
     </div>
     <div class="container pt-5">
         <div class="row">
-          <div class="col-sm">
-            <div class="text-start text-sm-center p-3"><h4 class="fw-bold"><i class="bi bi-search pe-2"></i>Search</h4>
-                <div>Find vetted service providers and choose the one that best matches you and your four legged
-                    friend.
+            <div class="col-sm">
+                <div class="text-start text-sm-center p-3">
+                    <h4 class="fw-bold"><i class="bi bi-search pe-2"></i>Search</h4>
+                    <div>Find vetted service providers and choose the one that best matches you and your four legged
+                        friend.
+                    </div>
                 </div>
             </div>
-          </div>
-          <div class="col-sm">
-            <div class="text-start text-sm-center p-3"><h4 class="fw-bold"><i class="bi bi-cash-coin pe-2"></i></i>Book & Pay</h4>
-                <div>Click, book and pay all online with our secure system</div>
+            <div class="col-sm">
+                <div class="text-start text-sm-center p-3">
+                    <h4 class="fw-bold"><i class="bi bi-cash-coin pe-2"></i></i>Book & Pay</h4>
+                    <div>Click, book and pay all online with our secure system</div>
+                </div>
             </div>
-          </div>
-          <div class="col-sm">
-            <div class="text-start text-sm-center p-3"><h4 class="fw-bold"><i class="bi bi-hand-thumbs-up pe-2"></i>Relax</h4>
-                <div>Rest easy that your furry friend is in the loving arms of our service providers</div>
+            <div class="col-sm">
+                <div class="text-start text-sm-center p-3">
+                    <h4 class="fw-bold"><i class="bi bi-hand-thumbs-up pe-2"></i>Relax</h4>
+                    <div>Rest easy that your furry friend is in the loving arms of our service providers</div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 </section>
 
 {% endblock %}

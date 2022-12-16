@@ -9,8 +9,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A website to connect dog owners with local Dogsitters, Dog walkers and Kennels who offer doggy day care. Book and pay securely.">
-  <meta name="keywords" content="Dog kennel, Dog Walking,  Dog Sitter, How much does Dog Sitter cost, How much does Dog Walker cost, How much does Dog Kennel cost, Dog sitter near me, Dog Kennel near me, Dog walker near me, Where to leave  my dog when I go to work, Where to leave dog while on vacation , Become a Dog sitter, Become a Dog walker, Dog sitters Ireland, Dog walkers Ireland, Dog kennels Ireland">
+  <meta name="description"
+    content="A website to connect dog owners with local Dogsitters, Dog walkers and Kennels who offer doggy day care. Book and pay securely.">
+  <meta name="keywords"
+    content="Dog kennel, Dog Walking,  Dog Sitter, How much does Dog Sitter cost, How much does Dog Walker cost, How much does Dog Kennel cost, Dog sitter near me, Dog Kennel near me, Dog walker near me, Where to leave  my dog when I go to work, Where to leave dog while on vacation , Become a Dog sitter, Become a Dog walker, Dog sitters Ireland, Dog walkers Ireland, Dog kennels Ireland">
   <meta name="author" content="Colm O'Sullivan">
   <meta>
   {% endblock %}
@@ -58,29 +60,27 @@
     <nav class="navbar navbar-expand-md navbar-light pt-4 pb-4">
       <div class="container-xxl">
         <a href="{% url 'home' %}" class="navbar-brand">
-          <span class="fw-bold text-primary">Dawg House</span>
+          <span class="fw-bold text-primary">Dawg House<i class="ps-2 fa-solid fa-paw"></i></span>
         </a>
-        <div class="col-md-5">
-        <a class="nav-link" href="{% url 'view_bag' %}">
-          <div class="text-center text-primary">
+          <a class="ps-5 nav-link" href="{% url 'view_bag' %}">
+            <div class="text-center text-primary">
               <div><i class="fas fa-shopping-bag fa-lg"></i></div>
               <p class="my-0">
-                  {% if grand_total %}
-                      €{{ grand_total|floatformat:2 }}
-                  {% else %}
-                  €{{ total }}
-                  {% endif %}
+                {% if grand_total %}
+                €{{ grand_total|floatformat:2 }}
+                {% else %}
+                €{{ total }}
+                {% endif %}
               </p>
-          </div>    
-        </a>
-        </div>
+            </div>
+          </a>
         <!--toggle button for mobile nav-->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
           aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- navbar links -->
-        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+        <div class="cl-lg-6 collapse navbar-collapse justify-content-end align-center" id="main-nav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="{% url 'home' %}">Home</a>
@@ -156,9 +156,12 @@
           <h5>Section</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0 text-muted">About</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'privacypolicy' %}" class="nav-link p-0 text-muted" aria-label="Link to our Privacy Policies">Privacy Policy</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'termsconditions' %}" class="nav-link p-0 text-muted" aria-label="Link to our Terms and Conditions">Terms and Conditions</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0 text-muted" aria-label="Link to Contact Us page">Contact Us</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'privacypolicy' %}" class="nav-link p-0 text-muted"
+                aria-label="Link to our Privacy Policies">Privacy Policy</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'termsconditions' %}" class="nav-link p-0 text-muted"
+                aria-label="Link to our Terms and Conditions">Terms and Conditions</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0 text-muted"
+                aria-label="Link to Contact Us page">Contact Us</a></li>
           </ul>
         </div>
 
@@ -175,7 +178,8 @@
                   <div class="mc-field-group">
                     <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
                     </label>
-                    <input class="form-control"  type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                    <input class="form-control" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"
+                      required>
                     <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
                   </div>
                   <div id="mce-responses" class="clear foot">
@@ -187,10 +191,11 @@
                       name="b_a748f3fe6ec38344bebb86529_89ce433d9e" tabindex="-1" value=""></div>
                   <div class="optionalParent">
                     <div class="clear foot">
-                      <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+                      <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                        class="btn btn-primary">
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </form>
           </div>
@@ -200,13 +205,16 @@
         <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top text-center">
           <p>&copy; 2022 Dawg House, Inc. All rights reserved.</p>
           <ul class="list-unstyled d-flex justify-content-center">
-            <li class="ms-3"><a class="link-dark" href="https://www.facebook.com/Dawg-House-112813088340198" target="_blank" aria-label="visit our facebook profile (opens in a new tab)"><i class="bi bi-facebook"></i></a></li>
-            <li class="ms-3"><a class="link-dark" href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram" aria-label="visit our instagram profile(opens in a new tab)"></i></a></li>
-            <li class="ms-3"><a class="link-dark" href="https://twitter.com/dawghouseire" target="_blank" aria-label="visit our twitter account (opens in a new tab)"><i
-                  class="bi bi-twitter"></i></a></li>
+            <li class="ms-3"><a class="link-dark" href="https://www.facebook.com/Dawg-House-112813088340198"
+                target="_blank" aria-label="visit our facebook profile (opens in a new tab)"><i
+                  class="bi bi-facebook"></i></a></li>
+            <li class="ms-3"><a class="link-dark" href="https://www.instagram.com/" target="_blank"><i
+                  class="bi bi-instagram" aria-label="visit our instagram profile(opens in a new tab)"></i></a></li>
+            <li class="ms-3"><a class="link-dark" href="https://twitter.com/dawghouseire" target="_blank"
+                aria-label="visit our twitter account (opens in a new tab)"><i class="bi bi-twitter"></i></a></li>
           </ul>
         </div>
-      </div>  
+      </div>
     </footer>
   </div>
   <!--Javascript for post page load-->
