@@ -54,15 +54,15 @@ def service_comments(request, slug):
     return render(request, 'services/review.html', context)
 
 
-def delete_comment(request, id):
+def delete_review(request, id):
     """ Delete review from service reviews """
     review = Comment.objects.filter(pk=id)
     review.delete()
     messages.success(request, 'Your review has been deleted permanently')
-    return redirect(reverse('review_service'))
+    return redirect('services')
 
 
-def add_review(request):
+def add_review(request, id):
     """ Add a new review to service """
     if request.method == 'POST':
         form = ReviewForm(request.POST)
