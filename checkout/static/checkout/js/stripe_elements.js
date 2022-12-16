@@ -7,9 +7,10 @@
 
 */
 
+
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey)
+var stripe = Stripe(stripePublicKey);  
 var elements = stripe.elements();
 var style = {
     base: {
@@ -45,7 +46,7 @@ card.addEventListener('change', function(event){
     }
 });
 
-var form = document.getElementById("payment-form")
+var form = document.getElementById("payment-form");
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
@@ -70,7 +71,7 @@ form.addEventListener('submit', function(ev) {
             $('#payment-form').fadeToggle(100);
             $('#loading-overlay').fadeToggle(100);
             card.update({'disabled': false});
-            $('#submit-button').attr('disabled', false)
+            $('#submit-button').attr('disabled', false);
         }else{
             if (result.paymentIntent.status == 'succeeded'){
                 form.submit();
