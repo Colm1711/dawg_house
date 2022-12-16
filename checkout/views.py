@@ -11,6 +11,7 @@ from django.shortcuts import (render,
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
 
 # Internal imports
 from services.models import Service
@@ -145,11 +146,17 @@ def checkout_success(request, order_number):
             user_profile_form = RegisterForm(profile_data, initial=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
-
+                subject = order.order_number
+                message = f'Hi {order.first_name} Thanks you have succesfully\
+                ordered from Dawghose your {order.order_number} is with our\
+                team and will be followed up soon one of our service providers\
+                !'
+                from_email = settings.EMAIL_HOST_USER
+                recipient_list = [order.email]
+                send_mail(subject, message, from_email, recipient_list)
+                messages.success(request, f'Order successfully processed! \
+                 Your order number is {order_number}. A confirmation \
+                email will be sent to {order.email}.')
     if 'bag' in request.session:
         del request.session['bag']
 
