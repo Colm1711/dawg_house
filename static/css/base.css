@@ -1,7 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css?family=Aleo&display=swap');
 
 html {
     height: 100%;
+}
+
+
+body {
+    overflow-x: hidden !important;
+    font-family: 'Aleo', sans-serif;
 }
 
 /* Hero Section */
