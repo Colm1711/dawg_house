@@ -14,20 +14,16 @@
                     <p><small class="text-muted">Order Date: {{ order.created_on|date:"D d M Y" }}</small></p>
                     <p class="fst-italic">Total cost: {{ order.order_total }} </p>
                     {% for item in order.lineitems.all %}
-                    <tr>
-                        <td class="p-3 w-25">
-                        </td>
-                        <td class="py-3">
+                        <div class="py-3">
                             <h4 class="my-0"><strong>Service: {{ item.service.service_type }}</strong></h4>
                             <p class="my-0">Breed: {{ item.breed }}</p>
                             <p class="my-0">Quantity: {{ item.quantity}}</p>
-                        </td>
-                        <td class="py-3">
+                        </div>
+                        <div class="py-3">
                             <p class="my-0">Price per service: €{{ item.service.cost }}</p>
-                        </td>
+                        </div>
                         <br>
                         <hr>
-                    </tr>
                     {% endfor %}
                     <p>Thank you for your purchase</p>
                     <a href="{% url 'home'%}" class="btn btn-primary">Back to Home</a>
