@@ -1,3 +1,6 @@
+# Imports
+
+# Django Imports
 from django.http import HttpResponse
 
 
@@ -12,5 +15,22 @@ class StripeWH_Handler:
         Handle a generic/unknown/unexpected webook event
         """
         return HttpResponse(
-            content=f'Webhoook received: {event["type"]}',
+            content=f'Unhandled webhoook received: {event["type"]}',
+            status=200)
+
+    def handle_payment_intent_succeeded(self, event):
+        """
+        Handle the payment_intent.succeeded webhook from stripe
+        """
+        intent = event.data.object
+        return HttpResponse(
+            content=f'Webbhook received: {event["type"]}',
+            status=200)
+
+    def handle_payment_intent_failed(self, event):
+        """
+        Handle the payment_intent.faled webhook from stripe
+        """
+        return HttpResponse(
+            content=f'Webbhook received: {event["type"]}',
             status=200)
