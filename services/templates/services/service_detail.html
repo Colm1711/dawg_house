@@ -38,7 +38,7 @@
                             <p class="mt-3">Select your dogs breed:</p>
                             <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm"
                                 id="breed_selector" name="breed_selector">
-                                <option></option>
+                                <option label="--------"></option>
                                 {% for breed in breeds %}
                                 <option value="{{ breed.breed }}">{{ breed.breed }}</option>
                                 {% endfor %}
@@ -71,7 +71,7 @@
                         </div>
                         <div class="p-2 d-flex flex-row justify-content-evenly justify-content-sm-start">
                             <div class="col-sm-4">
-                                <input type="submit" class="btn btn-primary" value="Add to Bag"></input>
+                                <input type="submit" class="btn btn-primary" value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             <div class="col-sm-4">
@@ -92,6 +92,7 @@
             </div>
         </div>
     </div>
+</div>    
     {% endblock %}
     {% block postloadjs %}
     {{ block.super }}

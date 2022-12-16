@@ -20,26 +20,25 @@
         <div class="container border">
             <p class="fw-light"> Order Summary: Services ({{ service_count }})</p>
             {% for item in bag_items %}
-            <tr>
-                <td class="p-3 w-25">
-                </td>
-                <td class="py-3">
+
+
+                <div class="py-3">
                     <h4 class="my-0"><strong>Service: {{ item.service.service_type }}</strong></h4>
                     <p class="my-0">Breed: {{ item.breed }}</p>
                     <p class="my-0">Quantity: {{ item.quantity}}</p>
-                </td>
-                <td class="py-3">
+                </div>
+                <div class="py-3">
                     <p class="my-0">Price per service: €{{ item.service.cost }}</p>
-                </td>
+                </div>
                 <br>
                 <hr>
-            </tr>
+
             {% endfor %}
             <p><strong>Order total: €{{ total }}</strong></p>
         </div>
         <div class="container col-md-6 pt-5">
             <p class="fw-light"> Fill out the details below to order services</p>
-            <form method="POST" enctype="multipart/form-data" action="{% url 'checkout' %}"" id="payment-form">
+            <form method="POST" enctype="multipart/form-data" action="{% url 'checkout' %}" id="payment-form">
                 {% csrf_token %}
                 {% load crispy_forms_tags %}
                 {{ order_form.first_name | as_crispy_field }}
@@ -51,7 +50,7 @@
                 {{ order_form.county | as_crispy_field }}
                 {{ order_form.eircode| as_crispy_field }}
                 <div class="form-group">
-                    <label for="card-element">Card Booking details</label>
+                    <p>Card Booking details</p>
                     <div id="card-element" class="form-control" style='height: 2.4em; padding-top: .7em;'>
                     </div>
                 </div>
@@ -69,11 +68,11 @@
     </div>
 </div>
 <div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
+    <div class="text-light logo-font loading-spinner">
       <span class="icon">
         <i class="fas fa-3x fa-sync-alt fa-spin"></i>
       </span>
-    </h1>
+    </div>
 </div>
 {% endblock %}
 {% block postloadjs %}
