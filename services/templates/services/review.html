@@ -19,7 +19,7 @@
             <div class="row">
                 {% if reviews %}
                 {% for review in reviews %}
-                <div class="container col-sm-7 border border-primary rounded mb-3 p-2">
+                <div class="container col-lg-12 col-sm-7 border border-primary rounded mb-3 p-2">
                     <p class="fst-italic">{{ review.comment}}</p>
                     <p><small class="text-muted"> {{review.name}}</small></p>
                     <p><small class="text-muted"> {{review.created_on}}</small></p>
@@ -30,8 +30,8 @@
                 {% endfor %}
             </div>
             {% else %}
-            <div class="container col-sm-7 border border-primary rounded mb-3 p-2">
-                <h1>No one has left a review yet we are sorry!</h1>
+            <div class="container col-lg-12 col-sm-7 border border-primary rounded mb-3 p-2">
+                <h1>No one has left a review yet we are sorry! <i class="fa-solid fa-face-surprise"></i></h1>
             </div>
             {% endif %}
         </div>
