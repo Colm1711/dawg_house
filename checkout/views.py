@@ -134,14 +134,14 @@ def checkout_success(request, order_number):
 
         if save_info:
             profile_data = {
-                'first_name': order_form.first_name,
-                'last_name': order_form.last_name,
-                'email': order_form.email,
-                'phone_number': order_form.phone_number,
-                'address_1': order_form.address_1,
-                'address_2': order_form.address_2,
-                'county': order_form.county,
-                'eircode': order_form.eircode,
+                'first_name': order.first_name,
+                'last_name': order.last_name,
+                'email': order.email,
+                'phone_number': order.phone_number,
+                'address_1': order.address_1,
+                'address_2': order.address_2,
+                'county': order.county,
+                'eircode': order.eircode,
             }
             user_profile_form = RegisterForm(profile_data, initial=profile)
             if user_profile_form.is_valid():

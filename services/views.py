@@ -1,12 +1,11 @@
 # Imports
 
 # Django imports
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.admin.views.decorators import staff_member_required
-from django.views import generic
 from django.contrib import messages
 # Internal imports
-from .models import Service, Size, Breed, Comment
+from .models import Service, Size, Comment, Breed
 from .forms import ServiceForm, ReviewForm
 
 
@@ -59,7 +58,7 @@ def delete_comment(request, id):
     """ Delete review from service reviews """
     review = Comment.objects.filter(pk=id)
     review.delete()
-    messages.success(request, f'Your review has been deleted permanently')
+    messages.success(request, 'Your review has been deleted permanently')
     return redirect(reverse('review_service'))
 
 
@@ -90,7 +89,7 @@ def add_service(request):
     if request.method == 'POST':
         form = ServiceForm(request.POST)
         if form.is_valid():
-            service = form.save()
+            form.save()
             messages.success(request, 'Successfully added a new service')
             return redirect('services')
         else:

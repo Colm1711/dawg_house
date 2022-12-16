@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 
 # Internal imports
-from services.models import Service, Breed, Size
+from services.models import Service
 
 
 def view_bag(request):
@@ -65,7 +65,7 @@ def adjust_bag(request, service_id):
                                     {breed} to {quantity}')
     else:
         del quantity
-        messages.warning(request, f'0 is not a valid selection. Why not try\
+        messages.warning(request, '0 is not a valid selection. Why not try\
                                     the remove button? :)')
 
     request.session['bag'] = bag
@@ -85,4 +85,5 @@ def remove_from_bag(request, service_id):
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.info(request, f'Error removing item: {e}')
         return HttpResponse(status=500)

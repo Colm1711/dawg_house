@@ -3,7 +3,7 @@
 # Django imports
 from django import forms
 # Internal imports
-from .models import Service, Breed, Comment
+from .models import Service, Comment
 
 
 class ServiceForm(forms.ModelForm):

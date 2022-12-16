@@ -6,7 +6,7 @@ from django.db import models
 from django.db.models import Sum
 
 # Internal imports
-from services.models import Service, Breed
+from services.models import Service
 from profiles.models import UserProfile
 
 

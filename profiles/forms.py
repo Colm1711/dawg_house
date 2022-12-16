@@ -2,7 +2,6 @@
 
 # All auth imports
 from allauth.account.forms import SignupForm
-from allauth.account.forms import LoginForm
 
 # Django imports
 from django import forms
