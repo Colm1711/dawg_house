@@ -93,7 +93,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'home' %}#howitworks">How It Works</a>
             </li>
-            <li class="nav-item dropdown">
+            <li id="accounts" class="nav-item dropdown">
               {% if request.user.is_authenticated %}
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">{{ user.userprofile.first_name }}</a>
