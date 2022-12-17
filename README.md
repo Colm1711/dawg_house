@@ -674,6 +674,22 @@ The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/ was
 
 ## Testing
 
+Ran simple validation on Contact form and model due to time constraints
+
+<summary>contact/forms.py</summary>
+<details>
+
+ ![](readme/misc/models_test.png)
+
+</details>
+
+<summary>contact/models.py</summary>
+<details>
+
+ ![](readme/misc/contact_tests.png)
+ 
+</details>
+
 ### Testing User Stories
 
 1. As a Site User I can easily understand the site layout so that I can easily navigate the site
