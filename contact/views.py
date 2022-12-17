@@ -1,8 +1,8 @@
 # Imports
 
 # Django imports
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
 # Internal imports
 from .forms import ContactForm
 
@@ -32,6 +32,9 @@ def contact_us(request):
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
+            messages.success(request, "Thank you for your query"
+                             "we will be in touch soon!")
+            return redirect('home')
     context = {'contact_form': contact_form,
                }
 
