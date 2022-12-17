@@ -132,8 +132,9 @@
   {% endfor %}
   <!--Main page content-->
   {% block content %}
+  
   {% endblock %}
-
+  <a href="#" class="top btn btn-primary" id="btnTop">Back to Top &#8593;</a>
   <!--Footer-->
   <div class="container pt-3">
     <footer class="py-5">
@@ -178,7 +179,7 @@
                     <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
                     </label>
                     <input class="form-control required email" type="email" value="" name="EMAIL" id="mce-EMAIL"
-                      required>
+                      required aria-hidden="true">
                     <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
                   </div>
                   <div id="mce-responses" class="clear foot">
@@ -216,6 +217,7 @@
       </div>
     </footer>
   </div>
+
   <!--Javascript for post page load-->
   {% block postloadjs %}
   <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
@@ -227,6 +229,32 @@
       ftypes[0] = 'email';
     }(jQuery));
     var $mcj = jQuery.noConflict(true);
+
+  // setting scroll to top button
+      let btn =  document.getElementById("btnTop");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      btn.style.display = "inline";
+    } else {
+      btn.style.display = "none";
+    }
+  }
+  // When the user clicks on the button, scroll to the top of the document
+  btn.addEventListener("click", backToTop);
+
+  function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   </script>
   <!--End mc_embed_signup-->
   {% endblock %}
