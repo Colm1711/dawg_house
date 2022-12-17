@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Disallow: /admin/
+Disallow: /profile/
+Disallow: /checkout/
+Sitemap: https://https://dawghouse.herokuapp.com/sitemap.xml
