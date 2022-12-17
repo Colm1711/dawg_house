@@ -12,7 +12,7 @@ Dawghouse is an e-commerce site aimed at offering services to dog owners looking
 # Contents
 * [**Project Goals**](<#project-goals>)
     *  [User Goals](#user-goals)
-    *  [Site Owner Goals](#site-owner-goals)
+* [**SEO**](<#seo>)
 * [**User Experience UX**](<#user-experience-ux>)
     *  [User Stories](<#user-stories>)
    1. [Structure](#structure)
@@ -20,12 +20,6 @@ Dawghouse is an e-commerce site aimed at offering services to dog owners looking
         2. [Code Structure](#code-structure)
         3. [Physical database model](#physical-database-model)
         4. [Models](#models)
-            1. [User Model](#user-model)
-            2. [Profile Model](#profile-model)
-            3. [Food_item Model](#food_item-model)
-            4. [Review Model](#review-model)
-            5. [Order Model](#order-model)
-            6. [AboutMe Model](#aboutme-model)
     2. [Scope](#scope)
         1. [User Stories](#user-stories)
     3. [Skeleton](#skeleton)
@@ -59,6 +53,7 @@ Agile Methodology was used in this project implementing the SCRUM project manage
 
 Please find the link to the Kanban board used [here](https://github.com/users/Colm1711/projects/7/views/1)
 
+# User Goals
 
 The Primary goal of this website from the owners perspective is as follows:
 
@@ -82,22 +77,6 @@ The Primary goal of this website from the users perspective is as follows:
 * To add a Service to bag and purchase order
 * To log into/out of an existing account
 
-
-## User Experience (UX)
-
--   ### Target Audience
-1. Dog Owners and lovers
-2. Dog Walkers
-3. Kennel Owners
-4. Pet Sitters
-
-## User Requirements and Expectations
-- An easy navigation system with instant learning.
-- Able to navigate the site quickly and easily.
-- No broken links.
-- Responsive and visually appealing on all devices.
-- Ability to view services and complete purchases
-- Ability to contact the Site owner
 
 ## SEO
 
@@ -131,6 +110,22 @@ The site includes a signup form to a newsletter at footer so the business can ke
 ![Sign-up](readme/misc/newsletter-signup.png)
 
 ![Email-success](readme/misc/newsletter-sub.png)
+
+## User Experience (UX)
+
+-   ### Target Audience
+1. Dog Owners and lovers
+2. Dog Walkers
+3. Kennel Owners
+4. Pet Sitters
+
+### User Requirements and Expectations
+- An easy navigation system with instant learning.
+- Able to navigate the site quickly and easily.
+- No broken links.
+- Responsive and visually appealing on all devices.
+- Ability to view services and complete purchases
+- Ability to contact the Site owner
 
 ## User stories
 
@@ -193,8 +188,6 @@ The site includes a signup form to a newsletter at footer so the business can ke
     9. Add profile pictures to accounts
     10. Add additonal charges for breed sizes
 
-
-#### Overview
 
 ## Structure
 ### Code Structure
@@ -666,9 +659,18 @@ The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/ was
 ### Performance 
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/) was used to measure the performance and speed of the website performance, accessibility, best practice and SEO with results below:
 
-<details><summary>Results</summary>
-<img src="">
-</details>
+  <details>
+  <summary>Results</summary>
+
+  ![](readme/misc/lighthouse-desktop.png)
+  ![](readme/misc/lighthouse-contact.png)
+  ![](readme/misc/lighthouse-bag.png)
+  ![](readme/misc/lighthouse-privacy.png)
+  ![](readme/misc/lighthouse-reviews.png)
+  ![](readme/misc/lighthouse-servies.png)
+  ![](readme/misc/lighthouse-tcs.png)
+
+  </details> 
 
 ## Testing
 
