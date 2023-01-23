@@ -71,10 +71,6 @@
                         </div>
                         <div class="p-2 d-flex flex-row justify-content-evenly justify-content-sm-start">
                             <div class="col-sm-4">
-                                <input type="submit" class="btn btn-primary" value="Add to Bag">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            <div class="col-sm-4">
                                 <a href="{% url 'services' %}" class="btn btn-primary rounded">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
@@ -82,6 +78,11 @@
                                     <span>Back to services</span>
                                 </a>
                             </div>
+                            <div class="col-sm-4">
+                                <input type="submit" class="btn btn-primary" value="Add to Bag">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
                         </div>
                     </form>
                     <div class="p-2">
