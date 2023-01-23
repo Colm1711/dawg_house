@@ -18,24 +18,27 @@
         <div class="row">
             {% for service in services %}
             <div class="container col-sm-7 col-md-9 border border-primary rounded mb-3 p-2">
-                <h5>{{ service.service_type }}</h5>
-                    {% if "placeholder" in service.service_image.url %}
-                        <img
-                        src="{% static 'images/placeholder.avif' %}" 
-                        alt="Image of service" class="img-fluid rounded">
-                    {% else %}
-                        <img src="{{service.service_image.url}}" alt="Image of service" id="service-image"
-                        class="img-fluid rounded">
-                    {% endif %}
+                <h2>{{ service.service_type }}</h2>
+                {% if "placeholder" in service.service_image.url %}
+                <img src="{% static 'images/placeholder.avif' %}" alt="Image of service" class="img-fluid rounded">
+                {% else %}
+                <img src="{{service.service_image.url}}" alt="Image of service" id="service-image"
+                    class="img-fluid rounded">
+                {% endif %}
                 <p><small class="text-muted"> {{service.sub_heading}}</small></p>
                 <p class="fst-italic">{{ service.description }}</p>
                 <a href="{% url 'service_detail' service.slug %}" class="btn btn-primary">Make booking here</a>
                 {% if request.user.is_superuser %}
                 <a class="btn btn-success float-end" href="{% url 'edit_service' service.slug %}">Edit</a>
                 {% endif %}
-                <p class="pt-2"><a href="{% url 'review_service' service.slug %}">See Reviews</a></p>
+                <!--Reviews -->
+                <div class="pt-2">
+                    <a class="btn btn-info px-4" href="{% url 'review_service' service.slug %}">See Reviews<i
+                            class="ps-2 fa-regular fa-comments"></i></a>
+                </div>
             </div>
             {% endfor %}
+            <!-- Add services -->
             {% if request.user.is_superuser %}
             <div class="container">
                 <div class="row justify-content-center">
