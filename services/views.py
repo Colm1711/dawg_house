@@ -121,8 +121,9 @@ def edit_service(request, slug):
         form = ServiceForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             service = form.save()
-            messages.success(request, f'Successfully updated {service.name}!')
-            return redirect(reverse('service_detail', args=[service.id]))
+            messages.success(request, f'Successfully updated\
+                            {service.service_type}!')
+            return redirect(reverse('service_detail', args=[service.slug]))
         else:
             messages.info(request, f'Failed to update\
                            {service.name}. Please ensure valid form.')
