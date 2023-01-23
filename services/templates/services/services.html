@@ -33,7 +33,7 @@
                 {% endif %}
                 <!--Reviews -->
                 <div class="pt-2">
-                    <a class="btn btn-info px-4" href="{% url 'review_service' service.slug %}">See Reviews<i
+                    <a class="btn btn-info px-4 text-white" href="{% url 'review_service' service.slug %}">See Reviews<i
                             class="ps-2 fa-regular fa-comments"></i></a>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             {% if request.user.is_superuser %}
             <div class="container">
                 <div class="row justify-content-center">
-                    <a class="btn btn-primary col-3 col-centered" href="{% url 'add_service' %}">Add</a>
+                    <a class="btn btn-primary col-3 col-centered" href="{% url 'add_service' %}">Add a new service</a>
                 </div>
             </div>
             {% endif %}
