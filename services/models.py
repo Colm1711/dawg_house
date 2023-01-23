@@ -85,4 +85,4 @@ class Comment(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return f"Review {self.body} by {self.name}"
+        return f"Review {self.comment} by {self.name}"
