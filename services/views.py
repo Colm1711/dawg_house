@@ -72,9 +72,10 @@ def add_review(request, slug):
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.instance.service = service
+            form.instance.email = request.user.email
             form.save()
             messages.success(request, 'Successfully added a new review')
-            return redirect('services')
+            return redirect('review_service', slug=service.slug)
         else:
             messages.error(request, 'Failed to add the new review'
                                     'please check if form is valid')
