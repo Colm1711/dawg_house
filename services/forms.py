@@ -19,4 +19,4 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = "__all__"
-        exclude = ('service', 'created_on', 'is_approved',)
+        exclude = ('service', 'email', 'created_on', 'is_approved',)
