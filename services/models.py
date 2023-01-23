@@ -4,6 +4,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 
 class Service(models.Model):
@@ -23,6 +24,7 @@ class Service(models.Model):
                                    null=True,
                                    blank=True,)
     slug = models.SlugField(blank=True, null=True)
+    service_image = CloudinaryField('image', default='placeholder')
 
     def save(self, *args, **kwargs):
         """
