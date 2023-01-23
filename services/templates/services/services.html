@@ -14,12 +14,19 @@
 <!-- Services-->
 <div class="border border-2">
     <h1 class="display-4 text-center py-4">Our Services</h1>
-
     <div class="container pb-5">
         <div class="row">
             {% for service in services %}
-            <div class="container col-sm-7 border border-primary rounded mb-3 p-2">
+            <div class="container col-sm-7 col-md-9 border border-primary rounded mb-3 p-2">
                 <h5>{{ service.service_type }}</h5>
+                    {% if "placeholder" in service.service_image.url %}
+                        <img
+                        src="{% static 'images/placeholder.avif' %}" 
+                        alt="Image of service" class="img-fluid rounded">
+                    {% else %}
+                        <img src="{{service.service_image.url}}" alt="Image of service" id="service-image"
+                        class="img-fluid rounded">
+                    {% endif %}
                 <p><small class="text-muted"> {{service.sub_heading}}</small></p>
                 <p class="fst-italic">{{ service.description }}</p>
                 <a href="{% url 'service_detail' service.slug %}" class="btn btn-primary">Make booking here</a>
