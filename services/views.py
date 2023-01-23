@@ -38,10 +38,11 @@ def service_detail(request, slug):
 
 
 def service_comments(request, slug):
-    """ A view to show individual service reviews
+    """
+    A view to show individual service reviews
 
-        Here user comments are returned as reviews
-     """
+    Here user comments are returned as reviews
+    """
 
     service = get_object_or_404(Service, slug=slug)
     reviews = Comment.objects.filter(service=service.id)
@@ -62,11 +63,15 @@ def delete_review(request, id):
     return redirect('services')
 
 
-def add_review(request, id):
+def add_review(request, slug):
     """ Add a new review to service """
+
+    service = get_object_or_404(Service, slug=slug)
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
+            form.instance.service = service
             form.save()
             messages.success(request, 'Successfully added a new review')
             return redirect('services')
@@ -75,6 +80,7 @@ def add_review(request, id):
                                     'please check if form is valid')
     else:
         form = ReviewForm()
+
     template = 'services/add_review.html'
     context = {
         'form': form,
@@ -97,6 +103,7 @@ def add_service(request):
                                     'please check if form is valid')
     else:
         form = ServiceForm()
+
     template = 'services/add_service.html'
     context = {
         'form': form,
