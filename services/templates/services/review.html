@@ -12,41 +12,44 @@
 {% block content %}
 
 <!-- View Reviews-->
-<div class="border border-2">
-    <h1 class="display-4 text-center py-3">Reviews</h1>
-    <div class="container pb-5">
-        <div class="container col-md-6 col-lg-3">
-            <div class="row">
-                {% if reviews %}
-                {% for review in reviews %}
+<div>
+    <div class="border border-2">
+        <h1 class="display-4 text-center py-3">Reviews</h1>
+        <div class="container pb-5">
+            <div class="container col-md-6 col-lg-3">
+                <div class="row">
+                    {% if reviews %}
+                    {% for review in reviews %}
+                    <div class="container col-lg-12 col-sm-7 border border-primary rounded mb-3 p-2">
+                        <p class="fst-italic">{{ review.comment}}</p>
+                        <p><small class="text-muted"> {{review.name}}</small></p>
+                        <p><small class="text-muted"> {{review.created_on}}</small></p>
+                        {% if review.email == user.email %}
+                        <a class="btn btn-danger col-4" href="{% url 'delete_review' review.id %}">Delete</a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
                 <div class="container col-lg-12 col-sm-7 border border-primary rounded mb-3 p-2">
-                    <p class="fst-italic">{{ review.comment}}</p>
-                    <p><small class="text-muted"> {{review.name}}</small></p>
-                    <p><small class="text-muted"> {{review.created_on}}</small></p>
-                    {% if review.email == user.email %}
-                    <a class="btn btn-danger col-4" href="{% url 'delete_review' review.id %}">Delete</a>
+                    <h1>No one has left a review yet we are sorry! <i class="fa-solid fa-face-surprise"></i></h1>
+                </div>
+                {% endif %}
+                <div class="text-center pt-3">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-primary" href="{% url 'add_review' service.slug %}">Want to leave a review for you
+                        recent
+                        service?</a>
                     {% endif %}
                 </div>
-                {% endfor %}
-            </div>
-            {% else %}
-            <div class="container col-lg-12 col-sm-7 border border-primary rounded mb-3 p-2">
-                <h1>No one has left a review yet we are sorry! <i class="fa-solid fa-face-surprise"></i></h1>
-            </div>
-            {% endif %}
-            <div class="text-center pt-3">
-            {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'add_review' service.slug %}">Want to leave a review for you recent
-                    service?</a>
-            {% endif %}
-            </div>
-            <div class="text-center pt-4">
-                <a href="{% url 'services' %}" class="btn btn-primary rounded">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span>Back to services</span>
-                </a>
+                <div class="text-center pt-4">
+                    <a href="{% url 'services' %}" class="btn btn-primary rounded">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span>Back to services</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
