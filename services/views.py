@@ -94,7 +94,7 @@ def add_review(request, slug):
 def add_service(request):
     """ Add a new service to the site """
     if request.method == 'POST':
-        form = ServiceForm(request.POST)
+        form = ServiceForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added a new service')
