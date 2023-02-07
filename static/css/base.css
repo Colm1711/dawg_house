@@ -37,6 +37,10 @@ body {
 
 }
 
+.mycustom-jumbotron {
+    height: 300px;
+  }
+
 /*Showcase on Landing page*/
 .booking-card {
     position: relative;
