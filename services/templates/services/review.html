@@ -27,6 +27,9 @@
                         {% if review.email == user.email %}
                         <a class="btn btn-danger col-4" href="{% url 'delete_review' review.id %}">Delete</a>
                         {% endif %}
+                        {% if review.email == user.email %}
+                        <a class="btn btn-success col-4" href="{% url 'edit_review' review.id %}">Edit</a>
+                        {% endif %}
                     </div>
                     {% endfor %}
                 </div>
@@ -40,6 +43,8 @@
                     <a class="btn btn-primary" href="{% url 'add_review' service.slug %}">Want to leave a review for you
                         recent
                         service?</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'account_signup' %}">Sign up today to leave a review</a>
                     {% endif %}
                 </div>
                 <div class="text-center pt-4">
