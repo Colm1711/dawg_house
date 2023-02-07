@@ -7,8 +7,9 @@ html {
 body {
     overflow-x: hidden !important;
     font-family: 'Aleo', sans-serif;
+    margin-left: 0;
+    margin-right: 0;
 }
-
 
 /*Scroll to top button*/
 .top {
@@ -119,6 +120,10 @@ body {
   
 /* For desktop: */
 @media (min-width: 1024px) {
+    body{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
     /* Hero Section */
     #hero{
         background: url('../images/dog-hero.avif') no-repeat center;
