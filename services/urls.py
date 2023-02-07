@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('', views.all_services, name='services'),
     path('review/<slug:slug>', views.service_comments, name='review_service'),
+    path('editreview/<int:id>', views.edit_review, name='edit_review'),
     path('deletereview/<int:id>', views.delete_review, name='delete_review'),
     path('addreview/<slug:slug>', views.add_review, name='add_review'),
     path('add/', views.add_service, name='add_service'),
