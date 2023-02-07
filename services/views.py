@@ -90,6 +90,33 @@ def add_review(request, slug):
     return render(request, template, context)
 
 
+def edit_review(request, id):
+    """ Edit a review on a service """
+
+    comment = get_object_or_404(Comment, pk=id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=comment)
+        if form.is_valid():
+            service = form.instance.service
+            form.save()
+            messages.success(request, f'Successfully updated the review to\
+                                         "{comment.comment}"')
+            return redirect(reverse('review_service', args=[service.slug]))
+        else:
+            messages.error(request, 'Failed to update the review'
+                                    'please check if form is valid')
+    else:
+        form = ReviewForm(instance=comment)
+
+    template = 'services/edit_review.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
 @staff_member_required
 def add_service(request):
     """ Add a new service to the site """
